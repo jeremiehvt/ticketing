@@ -5,10 +5,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class LuckyController extends Controller
+class HompageController extends Controller
 {
     /**
-    * @Route("/lucky/number")
+    * @Route("/")
     */
     public function number()
     {

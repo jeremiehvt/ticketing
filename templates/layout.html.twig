@@ -3,11 +3,11 @@
 {% block body %}
 
 	<nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-primary">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="{{ path('homepage') }}">Navbar</a>
 		<div class="collapse navbar-collapse">
 			<div class="navbar-nav">
-			    <a class="nav-item nav-link" href="#">billetterie</a>
-			    <a class="nav-item nav-link" href="#">contact</a>
+			    <a class="nav-item nav-link" href="{{ path('tickets') }}">billetterie</a>
+			    <a class="nav-item nav-link" href="{{ path('contact') }}">contact</a>
 			</div>
 		</div>
 	</nav>
@@ -29,12 +29,11 @@
 					    <div class="col-md-3">
 					        <h6 class="col-md-12">adresse :</h6>
 					        <p class="col-md-12">rue de rivoli<br> 75000 Paris</p>
-					    </div>
-				    
+					    </div>   
 			    </div>
 		    </div>
 		    <div class="col-md-12">
-		    	<p>©jeremiehvt-<a href="mailto:jeremiehvt@gmail.com">jeremiehvt@gmail.com</a>-<a href="">portfolio</a></p>
+		    	<p>©jeremiehvt-<a href="mailto:jeremiehvt@gmail.com">jeremiehvt@gmail.com</a>-<a href="https://www.behance.net/jeremiehavart">portfolio</a></p>
 		    </div>
 		</div>
     </footer>

@@ -4,7 +4,7 @@ namespace App\DataFixtures;
 
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use App\Entity\TypeTickets;
+use App\Entity\TycketsType;
 
 class TypeTicketsFixtures extends Fixture
 {
@@ -15,8 +15,8 @@ class TypeTicketsFixtures extends Fixture
 
     	foreach ($names as $name) {
 
-    		$typeTickets = new TypeTickets();
-            $typeTickets->setName($name);
+    		$typeTickets = new TycketsType();
+            $typeTickets->setType($name);
             $manager->persist($typeTickets);
     	}
         

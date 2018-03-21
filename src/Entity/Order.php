@@ -107,18 +107,6 @@ class Order
         return $this;
     }
 
-    public function getCountry(): ?bool
-    {
-        return $this->country;
-    }
-
-    public function setCountry(bool $country): self
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
     public function getType(): ?bool
     {
         return $this->type;

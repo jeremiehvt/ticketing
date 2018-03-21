@@ -49,7 +49,7 @@ class Order
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $spécialrate;
+    private $specialrate;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -60,6 +60,16 @@ class Order
      * @ORM\Column(type="boolean")
      */
     private $numberofplaces;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $token;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $price;
 
     public function getId()
     {

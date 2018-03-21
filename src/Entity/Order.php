@@ -34,11 +34,6 @@ class Order
     /**
      * @ORM\Column(type="string")
      */
-    private $country;
-
-    /**
-     * @ORM\Column(type="string")
-     */
     private $type;
 
     /**

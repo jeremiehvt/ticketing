@@ -24,27 +24,22 @@ class Order
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $firstname;
+    private $firstName;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $birthday;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $type;
+    private $birthDay;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $visitdays;
+    private $visitDay;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      */
-    private $specialrate;
+    private $specialRate;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -52,19 +47,14 @@ class Order
     private $email;
 
     /**
-     * @ORM\Column(type="boolean")
-     */
-    private $numberofplaces;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $token;
-
-    /**
      * @ORM\Column(type="integer")
      */
-    private $price;
+    private $numberOfPlaces;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $orderToken;
 
     public function getId()
     {
@@ -83,62 +73,50 @@ class Order
         return $this;
     }
 
-    public function getFirstname(): ?string
+    public function getFirstName(): ?string
     {
-        return $this->firstname;
+        return $this->firstName;
     }
 
-    public function setFirstname(string $firstname): self
+    public function setFirstName(string $firstName): self
     {
-        $this->firstname = $firstname;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
-    public function getBirthday(): ?\DateTimeInterface
+    public function getBirthDay(): ?\DateTimeInterface
     {
-        return $this->birthday;
+        return $this->birthDay;
     }
 
-    public function setBirthday(\DateTimeInterface $birthday): self
+    public function setBirthDay(\DateTimeInterface $birthDay): self
     {
-        $this->birthday = $birthday;
+        $this->birthDay = $birthDay;
 
         return $this;
     }
 
-    public function getType(): ?bool
+    public function getVisitDay(): ?\DateTimeInterface
     {
-        return $this->type;
+        return $this->visitDay;
     }
 
-    public function setType(bool $type): self
+    public function setVisitDay(\DateTimeInterface $visitDay): self
     {
-        $this->type = $type;
+        $this->visitDay = $visitDay;
 
         return $this;
     }
 
-    public function getVisitdays(): ?\DateTimeInterface
+    public function getSpecialRate(): ?bool
     {
-        return $this->visitdays;
+        return $this->specialRate;
     }
 
-    public function setVisitdays(\DateTimeInterface $visitdays): self
+    public function setSpecialRate(bool $specialRate): self
     {
-        $this->visitdays = $visitdays;
-
-        return $this;
-    }
-
-    public function getSpécialrate(): ?bool
-    {
-        return $this->spécialrate;
-    }
-
-    public function setSpécialrate(?bool $spécialrate): self
-    {
-        $this->spécialrate = $spécialrate;
+        $this->specialRate = $specialRate;
 
         return $this;
     }
@@ -155,14 +133,26 @@ class Order
         return $this;
     }
 
-    public function getNumberofplaces(): ?bool
+    public function getNumberOfPlaces(): ?int
     {
-        return $this->numberofplaces;
+        return $this->numberOfPlaces;
     }
 
-    public function setNumberofplaces(bool $numberofplaces): self
+    public function setNumberOfPlaces(int $numberOfPlaces): self
     {
-        $this->numberofplaces = $numberofplaces;
+        $this->numberOfPlaces = $numberOfPlaces;
+
+        return $this;
+    }
+
+    public function getOrderToken(): ?string
+    {
+        return $this->orderToken;
+    }
+
+    public function setOrderToken(string $orderToken): self
+    {
+        $this->orderToken = $orderToken;
 
         return $this;
     }

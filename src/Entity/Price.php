@@ -24,11 +24,6 @@ class Price
     /**
      * @ORM\Column(type="integer")
      */
-    private $age;
-
-    /**
-     * @ORM\Column(type="integer")
-     */
     private $cost;
 
     public function getId()
@@ -44,18 +39,6 @@ class Price
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getAge(): ?int
-    {
-        return $this->age;
-    }
-
-    public function setAge(int $age): self
-    {
-        $this->age = $age;
 
         return $this;
     }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CountryRepository")
@@ -21,6 +23,16 @@ class Country
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="countries")
+     */
+    private $tickets;
+
+    public function __construct()
+    {
+        $this->tickets = new ArrayCollection();
+    }
+
     public function getId()
     {
         return $this->id;
@@ -36,5 +48,13 @@ class Country
         $this->name = $name;
 
         return $this;
+    }
+
+    /**
+     * @return collection|Tickets[]
+     */
+    public function getTickets()
+    {
+        return $this->tickets;
     }
 }

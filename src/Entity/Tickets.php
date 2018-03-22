@@ -53,19 +53,26 @@ class Tickets
     private $visitDay;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TycketsType", inversedBy="tickets")
+     * @ORM\ManyToOne(targetEntity="App\Entity\TycketsType", inversedBy="tickets", cascade={"persist"})
      */
     private $tycketsTypes;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Country", inversedBy="tickets")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Country", inversedBy="tickets", cascade={"persist"})
      */
     private $countries;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Order", inversedBy="tickets")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Command", inversedBy="tickets", cascade={"persist"})
      */
-    private $order;
+    private $command;
+
+    public function __construct()
+    {
+        $this->birthDay = new \DateTime();
+        $this->specialRate = 0;
+        $this->visitDay = new \DateTime();
+    }
 
 
     public function getName(): ?string
@@ -128,6 +135,18 @@ class Tickets
         return $this;
     }
 
+    public function getSpecialRate(): ?bool
+    {
+        return $this->specialRate;
+    }
+
+    public function setSpecialRate(bool $specialRate): self
+    {
+        $this->specialRate = $specialRate;
+
+        return $this;
+    }
+
     public function setCountries(Country $country)
     {
         $this->countries = $country;
@@ -142,7 +161,7 @@ class Tickets
 
     public function setTycketsTypes(TycketsType $tycketsTypes)
     {
-        $this->tycketsTypes = $tycketsTypesy;
+        $this->tycketsTypes = $tycketsTypes;
 
         return $this;
     }
@@ -152,9 +171,9 @@ class Tickets
         return $this->tycketsTypes;
     }
 
-    public function setOrder(Order $order)
+    public function setOrder(Command $command)
     {
-        $this->tycketsTypes = $order;
+        $this->command = $command;
 
         return $this;
     }

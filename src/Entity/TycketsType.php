@@ -54,7 +54,7 @@ class TycketsType
     {
         $this->tickets[] = $tickets;
 
-        $tickets->setTycketsTypes($tickets);
+        $tickets->setTycketsTypes($this);
 
         return $this;
     }

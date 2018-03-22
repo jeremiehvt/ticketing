@@ -7,9 +7,9 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\OrderRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\CommandRepository")
  */
-class Order
+class Command
 {
     /**
      * @ORM\Id()
@@ -26,40 +26,29 @@ class Order
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $orderToken;
+    private $token;
 
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $orderDate;
+    private $date;
 
     /**
     * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="order")
     */
     private $tickets;
 
-    public function __construct()
-    {
-        $this->tickets = new ArrayCollection();
-        $this->orderDate = new \DateTime();
-    }
-
     public function getId()
     {
         return $this->id;
     }
 
-    public function getSpecialRate(): ?bool
+    public function __construct()
     {
-        return $this->specialRate;
-    }
-
-    public function setSpecialRate(bool $specialRate): self
-    {
-        $this->specialRate = $specialRate;
-
-        return $this;
+        $this->tickets = new ArrayCollection();
+        $this->date = new \DateTime();
+        $this->numberOfPlaces = 1;
     }
 
     public function getNumberOfPlaces(): ?int
@@ -74,35 +63,35 @@ class Order
         return $this;
     }
 
-    public function getOrderToken(): ?string
+    public function getToken(): ?string
     {
-        return $this->orderToken;
+        return $this->token;
     }
 
-    public function setOrderToken(string $orderToken): self
+    public function setToken(string $token): self
     {
-        $this->orderToken = $orderToken;
+        $this->token = $token;
 
         return $this;
     }
 
-    public function setOrderDate(\DateTimeInterface $orderDate): self
+    public function setDate(\DateTimeInterface $date): self
     {
-        $this->orderDate = $orderDate;
+        $this->date = $date;
 
         return $this;
     }
 
-    public function getOrderDate(): ?\DateTimeInterface
+    public function getDate(): ?\DateTimeInterface
     {
-        return $this->orderDate;
+        return $this->date;
     }
 
     public function addTickets(Tickets $tickets)
     {
         $this->tickets[] = $tickets;
 
-        $tickets->setTycketsTypes($tickets);
+        $tickets->setOrder($this);
 
         return $this;
     }

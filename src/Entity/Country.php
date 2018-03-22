@@ -54,7 +54,7 @@ class Country
     {
         $this->tickets[] = $tickets;
 
-        $tickets->setCountries($tickets);
+        $tickets->setCountries($this);
 
         return $this;
     }

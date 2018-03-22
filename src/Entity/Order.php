@@ -42,7 +42,7 @@ class Order
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
-        $this->orderDate = new \DateTimeInterface();
+        $this->orderDate = new \DateTime();
     }
 
     public function getId()

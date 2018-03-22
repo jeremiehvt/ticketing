@@ -28,6 +28,12 @@ class Order
      */
     private $orderToken;
 
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $orderDate;
+
     /**
     * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="order")
     */
@@ -77,5 +83,17 @@ class Order
         $this->orderToken = $orderToken;
 
         return $this;
+    }
+
+    public function setOrderDate(\DateTimeInterface $orderDate): self
+    {
+        $this->orderDate = $orderDate;
+
+        return $this;
+    }
+
+    public function getOrderDate(): ?\DateTimeInterface
+    {
+        return $this->orderDate;
     }
 }

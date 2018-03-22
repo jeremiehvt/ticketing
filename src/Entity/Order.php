@@ -19,11 +19,6 @@ class Order
     private $id;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    private $visitDay;
-
-    /**
      * @ORM\Column(type="integer")
      */
     private $numberOfPlaces;
@@ -46,18 +41,6 @@ class Order
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getVisitDay(): ?\DateTimeInterface
-    {
-        return $this->visitDay;
-    }
-
-    public function setVisitDay(\DateTimeInterface $visitDay): self
-    {
-        $this->visitDay = $visitDay;
-
-        return $this;
     }
 
     public function getSpecialRate(): ?bool

@@ -47,6 +47,11 @@ class Tickets
     private $email;
 
     /**
+     * @ORM\Column(type="datetime")
+     */
+    private $visitDay;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TycketsType", inversedBy="tickets")
      */
     private $tycketsType;
@@ -106,6 +111,18 @@ class Tickets
     public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    public function getVisitDay(): ?\DateTimeInterface
+    {
+        return $this->visitDay;
+    }
+
+    public function setVisitDay(\DateTimeInterface $visitDay): self
+    {
+        $this->visitDay = $visitDay;
 
         return $this;
     }

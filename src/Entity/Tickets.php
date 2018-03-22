@@ -54,7 +54,12 @@ class Tickets
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Country", inversedBy="tickets")
      */
-    private $countries;
+    private $country;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Order", inversedBy="tickets")
+     */
+    private $order;
 
 
     public function getName(): ?string

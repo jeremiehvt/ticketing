@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\OrderRepository")
@@ -30,6 +32,16 @@ class Order
      * @ORM\Column(type="string", length=255)
      */
     private $orderToken;
+
+    /**
+    * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="order")
+    */
+    private $tickets;
+
+    public function __construct()
+    {
+        $this->tickets = new ArrayCollection();
+    }
 
     public function getId()
     {

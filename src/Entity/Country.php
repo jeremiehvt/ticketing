@@ -24,7 +24,7 @@ class Country
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="countries")
+     * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="country")
      */
     private $tickets;
 

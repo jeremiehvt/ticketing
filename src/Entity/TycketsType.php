@@ -49,4 +49,12 @@ class TycketsType
 
         return $this;
     }
+
+    /**
+     * @return collection|Tickets[]
+     */
+    public function getTickets()
+    {
+        return $this->tickets;
+    }
 }

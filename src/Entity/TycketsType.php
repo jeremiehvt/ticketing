@@ -50,11 +50,23 @@ class TycketsType
         return $this;
     }
 
-    /**
-     * @return collection|Tickets[]
-     */
+    public function addTickets(Tickets $tickets)
+    {
+        $this->tickets[] = $tickets;
+
+        $tickets->setTycketsTypes($tickets);
+
+        return $this;
+    }
+
+    public function removeTickets(Tickets $tickets)
+    {
+        $this->tickets->removeElement($tickets);
+    }
+
     public function getTickets()
     {
         return $this->tickets;
     }
+
 }

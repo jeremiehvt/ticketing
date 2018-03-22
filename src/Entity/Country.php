@@ -24,7 +24,7 @@ class Country
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="country")
+     * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="countries")
      */
     private $tickets;
 
@@ -50,11 +50,26 @@ class Country
         return $this;
     }
 
-    /**
-     * @return collection|Tickets[]
-     */
+    public function addTickets(Tickets $tickets)
+    {
+        $this->tickets[] = $tickets;
+
+        $tickets->setCountries($tickets);
+
+        return $this;
+    }
+
+    public function removeTickets(Tickets $tickets)
+    {
+        $this->tickets->removeElement($tickets);
+
+        // Et si notre relation était facultative (nullable=true, ce qui n'est pas notre cas ici attention) :        
+        // $tickets->setCountries(null);
+    }
+
     public function getTickets()
     {
         return $this->tickets;
     }
+
 }

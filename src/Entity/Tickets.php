@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TicketsRepository")
  */
@@ -54,12 +55,12 @@ class Tickets
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\TycketsType", inversedBy="tickets")
      */
-    private $tycketsType;
+    private $tycketsTypes;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Country", inversedBy="tickets")
      */
-    private $country;
+    private $countries;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Order", inversedBy="tickets")
@@ -126,4 +127,41 @@ class Tickets
 
         return $this;
     }
+
+    public function setCountries(Country $country)
+    {
+        $this->countries = $country;
+
+        return $this;
+    }
+
+    public function getCountries()
+    {
+        return $this->countries;
+    }
+
+    public function setTycketsTypes(TycketsType $tycketsTypes)
+    {
+        $this->tycketsTypes = $tycketsTypesy;
+
+        return $this;
+    }
+
+    public function getTycketsTypes()
+    {
+        return $this->tycketsTypes;
+    }
+
+    public function setOrder(Order $order)
+    {
+        $this->tycketsTypes = $order;
+
+        return $this;
+    }
+
+    public function getOrder()
+    {
+        return $this->order;
+    }
+
 }

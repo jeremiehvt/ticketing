@@ -49,6 +49,7 @@ class Command
         $this->tickets = new ArrayCollection();
         $this->date = new \DateTime();
         $this->numberOfPlaces = 1;
+        $this->generateToken();
     }
 
     public function getNumberOfPlaces(): ?int
@@ -70,6 +71,7 @@ class Command
 
     public function setToken(string $token): self
     {
+
         $this->token = $token;
 
         return $this;
@@ -104,5 +106,19 @@ class Command
     public function getTickets()
     {
         return $this->tickets;
+    }
+
+    public function generateToken()
+    {
+        $min = 1;
+        $max = 10;
+        $random = mt_rand($min, $max);
+        $bytes = openssl_random_pseudo_bytes($random);
+        $hex = bin2hex($bytes);
+        $token = str_shuffle($hex);
+
+        $this->token = $token;
+
+        return $this;
     }
 }

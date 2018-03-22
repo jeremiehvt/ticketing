@@ -26,7 +26,7 @@ class AddOrderController extends Controller
 		$tickets->setEmail('me@me.com');
 
 		$command = new Command;
-		$command->setToken('abcd');
+		
 		$command->addTickets($tickets);
 
 		$country = new Country;

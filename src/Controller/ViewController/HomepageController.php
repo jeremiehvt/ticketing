@@ -12,7 +12,7 @@ class HomepageController extends Controller
     */
     public function number() {
 
-        return $this->render('layout.html.twig');
+        return $this->render('homepage/homepage.html.twig');
     }
 }
 

@@ -12,11 +12,7 @@ class HomepageController extends Controller
     */
     public function number() {
 
-        $number = mt_rand(0, 100);
-
-        return $this->render('lucky/number.html.twig', array(
-            'number' => $number,
-        ));
+        return $this->render('layout.html.twig');
     }
 }
 

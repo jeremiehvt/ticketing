@@ -2,8 +2,10 @@
 
 {% block body %}
 	
-	<nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-primary">
-		<a class="navbar-brand" href="{{ path('homepage') }}">Navbar</a>
+	<nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
+		<a class="navbar-brand" href="{{ path('homepage') }}">
+			<img src="public/img/logo.png">
+		</a>
 		<div class="collapse navbar-collapse">
 			<div class="navbar-nav">
 			    <a class="nav-item nav-link" href="{{ path('tickets') }}">billetterie</a>

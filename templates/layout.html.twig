@@ -15,12 +15,14 @@
 	</nav>
 	
 
-    {% block header %}
-    	<div class="jumbotron jumbotron-fluid">
-    		
-    		
-    		
-    	</div>
+    {% block header %}	
+		<div class="carousel slide" data-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img class="d-block w-100" src="../../public/img/louvre_un.jpg">
+				</div>
+			</div>
+		</div> 
     {% endblock %}
 
     {% block core %}{% endblock %}

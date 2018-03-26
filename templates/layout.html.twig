@@ -2,7 +2,7 @@
 
 {% block body %}
 	
-	<nav class="navbar sticky-top navbar-expand-sm navbar-dark bg-dark">
+	<nav id="nav" class="navbar sticky-top navbar-expand-sm navbar-dark">
 		<a class="navbar-brand" href="{{ path('homepage') }}">
 			<img src="../../public/img/logo.png">
 		</a>
@@ -27,7 +27,7 @@
 
     {% block core %}{% endblock %}
     
-    <div class="jumbotron jumbotron-fluid pb-0 ">
+    <div class="jumbotron jumbotron-fluid pb-0 mb-0">
    		<div class="container">
    		    <h2 class="col-12 pb-4" id="contact">infos, contact et horaires</h2>
    			<div class="row">
@@ -56,6 +56,7 @@
 
 					
    				</div>
+
    				<div class="col-6">
    					<h5 class="col-md-12">Adresse :</h5>
 					<ul class="col-md-12 list-unstyled">
@@ -85,26 +86,22 @@
    	</div>
 
 
-    <footer class="container-fluid">
+    <div id="footer" class="container pt-4 pb-1">
     	<div class="row">
-	    	<div class="col-md-12">
-		    	<div class="row">
-				        <div class="col-md-3">
-				        	<ul class="list-unstyled">
-					    	    <li>Mentions légales</li>
-					    	    <li>Contact</li>
-					        </ul>
-				        </div>
-					    
-					    <div class="col-md-3">
-					        
-					    </div>   
-			    </div>
-		    </div>
-		    <div class="col-md-12">
+	        
+	       <div class="col-12">
+	        	<ul class="list-unstyled">
+		    	    <li>Mentions légales</li>
+		    	    <li>Contact</li>
+		        </ul>
+	        </div>
+
+	        <div id="colofon" class="col-md-12">
 		    	<p>conception©jeremiehvt-<a href="mailto:jeremiehvt@gmail.com">jeremiehvt@gmail.com</a>-<a href="https://www.behance.net/jeremiehavart">portfolio</a></p>
 		    </div>
+
+
 		</div>
-    </footer>
+    </div>
 
 {% endblock %}

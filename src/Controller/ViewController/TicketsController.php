@@ -17,6 +17,5 @@ class TicketsController extends controller
 	public function tickets() {
 
 		return $this->render('tickets/tickets.html.twig');
-	}
-	
+	}	
 }

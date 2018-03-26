@@ -1,6 +1,6 @@
 body {
 	
-	background: no-repeat url("../../public/img/pyr.jpg"); 
+	background: no-repeat fixed 100% url("../../public/img/pyr.jpg"); 
 }
 
 #footer {

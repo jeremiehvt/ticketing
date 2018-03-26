@@ -33,6 +33,8 @@ body {
 #contact .btn:focus {
 	border: none;
 	box-shadow: none;
+	transform: rotate(180deg);
+	-webkit-transform: rotate(180deg);
 
 }
 

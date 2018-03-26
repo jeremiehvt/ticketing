@@ -1,3 +1,8 @@
+body {
+	
+	background: no-repeat url("../../public/img/pyr.jpg"); 
+}
+
 #footer {
 	color: #444444;
 	background-color: #191919;

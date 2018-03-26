@@ -7,7 +7,7 @@
 	background-color: black;
 }
 
-#colofon a {
+#footer a {
 
 	color: #444444;
 }
@@ -25,6 +25,17 @@
 	background-color: #990000;
 }
 
+#contact .btn:focus {
+	border: none;
+	box-shadow: none;
+
+}
+
+#contact #datacontact1 span {
+
+	color: #990000;
+	font-weight: bold;
+}
 
 #homepage {
 
@@ -42,4 +53,5 @@
 #homepage h2 {
 
 	color: #383838;	
+
 }

@@ -27,66 +27,66 @@
 
     {% block core %}{% endblock %}
     
-    <div class="jumbotron jumbotron-fluid pb-0 mb-0">
+    <div id="contact" class="jumbotron jumbotron-fluid pb-0 my-0">
    		<div class="container">
-   		    <h2 class="col-12 pb-4" id="contact">infos, contact et horaires</h2>
-   			<div class="row">
-   				<div class="col-6 border-right">
-   					<h5 class="col-md-12">Horaires d'ouverture :</h5>
-					<ul class="col-md-12 list-unstyled">
-						<li>Lundi : 9 h - 18 h</li>
-						<li>Mardi : Fermé</li>
-						<li>Mercredi : 9 h - 21h45</li>
-						<li>Jeudi : 9 h - 18 h</li>
-						<li>Vendredi : 9 h - 21h45</li>
-						<li>Samedi : 9 h - 18 h</li>
-						<li>Dimanche : 9 h - 18 h</li>
-					</ul>
+   		    <h2 class="col-12 pb-4" id="contact">Infos, contact et horaires <a class="btn btn-primary rounded-circle" data-toggle="collapse" href=".multi-collapse" role="button" aria-expanded="false" aria-controls="datacontact datacontact1 datacontact2"><i class="fas fa-angle-down"></i></a></h2>
+   		    
+	   			<div class="row">
+	   				<div class="collapse multi-collapse col-6 border-right" id="datacontact">
+	   					<h5 class="col-md-12">Horaires d'ouverture :</h5>
+						<ul class="col-md-12 list-unstyled">
+							<li>Lundi : 9 h - 18 h</li>
+							<li>Mardi : Fermé</li>
+							<li>Mercredi : 9 h - 21h45</li>
+							<li>Jeudi : 9 h - 18 h</li>
+							<li>Vendredi : 9 h - 21h45</li>
+							<li>Samedi : 9 h - 18 h</li>
+							<li>Dimanche : 9 h - 18 h</li>
+						</ul>
 
-					<p class="col-md-12 pb-4 border-bottom"><span>L'évacuation des salles débute à 17 h 30 ou 21 h 30 les jours de nocturne.</span></p>
-
-
-					<h5 class="col-md-12 pt-2">Fermé le :</h5>
-					<ul class="col-md-12 list-unstyled">
-						<li>Lundi 1er janvier</li>
-						<li>Mardi 1er mai</li>
-						<li>Mardi 8 mai</li>
-						<li>Mardi 25 décembre</li>
-					</ul>
-
-					
-   				</div>
-
-   				<div class="col-6">
-   					<h5 class="col-md-12">Adresse :</h5>
-					<ul class="col-md-12 list-unstyled">
-						<li><span>Musée du Louvre</span>, rue de rivoli 75000 Paris</li>
-					</ul>
-					<h5 class="col-md-12">Infos :</h5>
-					<ul class="col-md-12 list-unstyled">
-						<li>Pour toute demande particulière veuillez nous contacter par <a href="mailto:jeremiehvt@gmail.com">mail</a>, ou par téléphone au 01-89-89-89-89</li>
-						<li></li>
-					</ul>
-   				</div>
+						<p class="col-md-12 pb-4 border-bottom"><span>L'évacuation des salles débute à 17 h 30 ou 21 h 30 les jours de nocturne.</span></p>
 
 
-   			</div>
+						<h5 class="col-md-12 pt-2">Fermé le :</h5>
+						<ul class="col-md-12 list-unstyled">
+							<li>Lundi 1er janvier</li>
+							<li>Mardi 1er mai</li>
+							<li>Mardi 8 mai</li>
+							<li>Mardi 25 décembre</li>
+						</ul>
 
-   			<div class="row">
-	   				<div class="col-md-12 pt-4 bg-light">
-		   				<div class="embed-responsive embed-responsive-16by9 col-md-12 ">
-		   					<iframe class="" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDTCfFoDJQ8P_P86tHZSC4MrPofZYlhHvo
-		    &q=Louvre+museum,Paris+France" allowfullscreen width="700" height="450">
-		    				</iframe>
-		   				</div>
-						<p class="col-md-12 pt-2"><span>powered by google</span></p>
+						
 	   				</div>
-   			    </div>  			
-   		</div>  		
+
+	   				<div class="collapse multi-collapse col-6" id="datacontact1">
+	   					<h5 class="col-md-12">Adresse :</h5>
+						<ul class="col-md-12 list-unstyled">
+							<li><span>Musée du Louvre</span>, rue de rivoli 75000 Paris</li>
+						</ul>
+						<h5 class="col-md-12">Infos :</h5>
+						<ul class="col-md-12 list-unstyled">
+							<li>Pour toute demande particulière veuillez nous contacter par <a class="badge badge-primary badge-pill" href="mailto:jeremiehvt@gmail.com">mail</a>, ou par téléphone au 01-89-89-89-89</li>
+							<li></li>
+						</ul>
+	   				</div>
+	   			</div>
+
+	   			<div class="row">
+		   			<div class="collapse multi-collapse col-md-12 px-0 bg-light" id="datacontact2">
+			   				<div class="embed-responsive embed-responsive-16by9 col-md-12 ">
+			   					<iframe class="" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDTCfFoDJQ8P_P86tHZSC4MrPofZYlhHvo
+			    &q=Louvre+museum,Paris+France" allowfullscreen width="700" height="450">
+			    				</iframe>
+			   				</div>
+							
+		   				</div>
+	   			    </div>  			
+	   		    </div>
+	   		
    	</div>
 
 
-    <div id="footer" class="container pt-4">
+    <div id="footer" class="container pt-4 my-0">
     	<div class="row">
 	        
 	       <div class="col-12">

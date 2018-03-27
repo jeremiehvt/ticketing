@@ -3,7 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+
 
 
 /**
@@ -44,9 +46,9 @@ class Tickets
     private $specialRate;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Country", inversedBy="tickets", cascade={"persist"})
+     * @ORM\Column(type="string", length=255)
      */
-    private $countries;
+    private $country;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Command", inversedBy="tickets", cascade={"persist"})
@@ -55,7 +57,7 @@ class Tickets
 
     public function __construct()
     {
-        $this->countries = new ArrayCollection();
+        
         $this->birthDay = new \DateTime();
         $this->specialRate = 0;
     }
@@ -121,26 +123,15 @@ class Tickets
         return $this->command;
     }
 
-    public function addCountries(Country $country)
+    public function setCountries(Country $country)
     {
-        $this->countries[] = $country;
-
-        $country->setTickets($this);
+        $this->countries = $country;
 
         return $this;
-    }
-
-    public function removeCountries(Country $country)
-    {
-        $this->countries->removeElement($country);
-
-        // Et si notre relation était facultative (nullable=true, ce qui n'est pas notre cas ici attention) :        
-        // $tickets->setCountries(null);
     }
 
     public function getCountries()
     {
         return $this->countries;
     }
-
 }

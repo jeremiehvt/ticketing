@@ -50,7 +50,7 @@ class Command
     private $tycketsType;
 
     /**
-    * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="order")
+    * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="command")
     */
     private $tickets;
 
@@ -128,7 +128,7 @@ class Command
         return $this->date;
     }
 
-    public function setTycketsType(string $tycketsType): string
+    public function setTycketsType(string $tycketsType): self
     {
         $this->tycketsType = $tycketsType;
 
@@ -144,7 +144,7 @@ class Command
     {
         $this->tickets[] = $tickets;
 
-        $tickets->setOrder($this);
+        $tickets->setCommand($this);
 
         return $this;
     }
@@ -169,7 +169,7 @@ class Command
         $random = mt_rand($min, $max);
         $bytes = openssl_random_pseudo_bytes($random);
         $hex = bin2hex($bytes);
-        $token = str_shuffle($hex);
+        $token = str_shuffle($hex . uniqid());
 
         $this->token = $token;
 

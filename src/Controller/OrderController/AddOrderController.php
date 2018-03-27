@@ -20,19 +20,20 @@ class AddOrderController extends AbstractController
 	*/
 	public function addOrder()
 	{
+		$country = new Country;
+		$country->setName('Angleterre');
+
+
 		$tickets = new Tickets;
 		$tickets->setName('moi');
 		$tickets->setFirstName('remoi');
-		$tickets->setEmail('me@me.com');
-		$tickets->setTicketsType('demi-journée');
+		$tickets->addCountries($country);
+
 
 		$command = new Command;
+		$command->setEmail('me@me.com');
+		$command->setTycketsType('demi-journée');
 		$command->addTickets($tickets);
-
-		$country = new Country;
-		$country->setName('France');
-		$country->addTickets($tickets);
-
 
 		$em = $this->getDoctrine()->getManager();
 		$em->persist($tickets);

@@ -50,21 +50,11 @@ class Country
         return $this;
     }
 
-    public function addTickets(Tickets $tickets)
+    public function setTickets(Tickets $tickets)
     {
-        $this->tickets[] = $tickets;
-
-        $tickets->setCountries($this);
+        $this->tickets = $tickets;
 
         return $this;
-    }
-
-    public function removeTickets(Tickets $tickets)
-    {
-        $this->tickets->removeElement($tickets);
-
-        // Et si notre relation était facultative (nullable=true, ce qui n'est pas notre cas ici attention) :        
-        // $tickets->setCountries(null);
     }
 
     public function getTickets()

@@ -107,18 +107,6 @@ class Tickets
         return $this;
     }
 
-    public function setCountries(Country $country)
-    {
-        $this->countries = $country;
-
-        return $this;
-    }
-
-    public function getCountries()
-    {
-        return $this->countries;
-    }
-
     public function setCommand(Command $command)
     {
         $this->command = $command;
@@ -129,6 +117,28 @@ class Tickets
     public function getCommand()
     {
         return $this->command;
+    }
+
+    public function addCountries(Country $country)
+    {
+        $this->countries[] = $country;
+
+        $countries->setTickets($this);
+
+        return $this;
+    }
+
+    public function removeCountries(Country $country)
+    {
+        $this->countries->removeElement($country);
+
+        // Et si notre relation était facultative (nullable=true, ce qui n'est pas notre cas ici attention) :        
+        // $tickets->setCountries(null);
+    }
+
+    public function getCountries()
+    {
+        return $this->countries;
     }
 
 }

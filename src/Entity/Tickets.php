@@ -123,15 +123,15 @@ class Tickets
         return $this->command;
     }
 
-    public function setCountries(Country $country)
+    public function setCountry(string $country): self
     {
-        $this->countries = $country;
+        $this->country = $country;
 
         return $this;
     }
 
-    public function getCountries()
+    public function getCountry(): ?string
     {
-        return $this->countries;
+        return $this->country;
     }
 }

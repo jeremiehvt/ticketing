@@ -3,16 +3,16 @@ namespace App\Controller\ViewController;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller; 
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; 
 
 
 /**
 * 
 */
-class TicketsController extends controller
+class TicketsController extends Abstractcontroller
 {
 	/**
-	* @Route("/tickets", name="tickets")
+	* @Route("/billetterie", name="tickets")
 	*/
 	public function tickets() {
 

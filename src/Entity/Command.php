@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommandRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Command
 {
@@ -15,7 +16,6 @@ class Command
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @ORM\HasLifeCycleCallbacks
      */
     private $id;
 

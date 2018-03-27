@@ -8,8 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; 
 use App\Entity\Command;
 use App\Entity\Tickets;
-use App\Entity\Country;
-use App\Entity\TycketsType;
 
 
 
@@ -18,32 +16,25 @@ class AddOrderController extends AbstractController
 	/**
 	* @Route("/addOrder", name="addOrder")
 	*/
-	public function addOrder()
+	public function addOrder(Request $request)
 	{
 
 
-		$tickets = new Tickets;
-		$tickets->setName('moi');
-		$tickets->setFirstName('remoi');
-		$tickets->setCountry('france');
 		
-		
+		if ($request->method('POST') && $form->handleRequest($request)->isValid()) {
+			
+			$em = $this->getDoctrine()->getManager();
+			$em->persist($tickets);
+			
+			$em->persist($command);
 
-		$command = new Command;
-		$command->setEmail('me@me.com');
-		$command->setTycketsType('demi-journée');
-		$command->addTickets($tickets);
+			$em->flush();
 
-
-		$em = $this->getDoctrine()->getManager();
-		$em->persist($tickets);
-		
-		$em->persist($command);
-
-		$em->flush();
+			
+			return new response("bonjour");
+		}
 
 		
-		return new response("bonjour");
 		
 	}
 	

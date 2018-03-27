@@ -1,1 +1,7 @@
 {% extends "layout.html.twig" %}
+
+{% block core %}
+{{ form_start(form) }}
+{{ form_widget(form) }}
+{{ form_end(form) }}
+{% endblock %}

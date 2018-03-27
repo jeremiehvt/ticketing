@@ -43,21 +43,6 @@ class Tickets
     private $specialRate;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $email;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    private $visitDay;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\TycketsType", inversedBy="tickets", cascade={"persist"})
-     */
-    private $tycketsTypes;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Country", inversedBy="tickets", cascade={"persist"})
      */
     private $countries;
@@ -71,7 +56,6 @@ class Tickets
     {
         $this->birthDay = new \DateTime();
         $this->specialRate = 0;
-        $this->visitDay = new \DateTime();
     }
 
 
@@ -111,30 +95,6 @@ class Tickets
         return $this;
     }
 
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getVisitDay(): ?\DateTimeInterface
-    {
-        return $this->visitDay;
-    }
-
-    public function setVisitDay(\DateTimeInterface $visitDay): self
-    {
-        $this->visitDay = $visitDay;
-
-        return $this;
-    }
-
     public function getSpecialRate(): ?bool
     {
         return $this->specialRate;
@@ -159,28 +119,16 @@ class Tickets
         return $this->countries;
     }
 
-    public function setTycketsTypes(TycketsType $tycketsTypes)
-    {
-        $this->tycketsTypes = $tycketsTypes;
-
-        return $this;
-    }
-
-    public function getTycketsTypes()
-    {
-        return $this->tycketsTypes;
-    }
-
-    public function setOrder(Command $command)
+    public function setCommand(Command $command)
     {
         $this->command = $command;
 
         return $this;
     }
 
-    public function getOrder()
+    public function getCommand()
     {
-        return $this->order;
+        return $this->command;
     }
 
 }

@@ -28,11 +28,25 @@ class Command
      */
     private $token;
 
-
     /**
      * @ORM\Column(type="datetime")
      */
     private $date;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $email;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $visitDay;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=false)
+     */
+    private $tycketsType;
 
     /**
     * @ORM\OneToMany(targetEntity="App\Entity\Tickets", mappedBy="order")
@@ -50,6 +64,31 @@ class Command
         $this->date = new \DateTime();
         $this->numberOfPlaces = 1;
         $this->generateToken();
+        $this->visitDay = new \DateTime();
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getVisitDay(): ?\DateTimeInterface
+    {
+        return $this->visitDay;
+    }
+
+    public function setVisitDay(\DateTimeInterface $visitDay): self
+    {
+        $this->visitDay = $visitDay;
+
+        return $this;
     }
 
     public function getNumberOfPlaces(): ?int
@@ -87,6 +126,18 @@ class Command
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
+    }
+
+    public function setTycketsType(bool $tycketsType): self
+    {
+        $this->tycketsType = $tycketsType;
+
+        return $this;
+    }
+
+    public function getTycketsType(): ?bool
+    {
+        return $this->tycketsType;
     }
 
     public function addTickets(Tickets $tickets)

@@ -3,7 +3,6 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
@@ -28,10 +27,7 @@ class Country
      */
     private $tickets;
 
-    public function __construct()
-    {
-        $this->tickets = new ArrayCollection();
-    }
+    
 
     public function getId()
     {

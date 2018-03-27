@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 
 /**
@@ -54,6 +55,7 @@ class Tickets
 
     public function __construct()
     {
+        $this->countries = new ArrayCollection();
         $this->birthDay = new \DateTime();
         $this->specialRate = 0;
     }
@@ -123,7 +125,7 @@ class Tickets
     {
         $this->countries[] = $country;
 
-        $countries->setTickets($this);
+        $country->setTickets($this);
 
         return $this;
     }

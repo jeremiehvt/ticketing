@@ -45,7 +45,7 @@ class Command
     private $visitDay;
 
     /**
-     * @ORM\Column(type="boolean", nullable=false)
+     * @ORM\Column(type="string",length=255, nullable=false)
      */
     private $tycketsType;
 
@@ -128,14 +128,14 @@ class Command
         return $this->date;
     }
 
-    public function setTycketsType(bool $tycketsType): self
+    public function setTycketsType(string $tycketsType): string
     {
         $this->tycketsType = $tycketsType;
 
         return $this;
     }
 
-    public function getTycketsType(): ?bool
+    public function getTycketsType(): ?string
     {
         return $this->tycketsType;
     }

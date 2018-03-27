@@ -24,18 +24,14 @@ class AddOrderController extends AbstractController
 		$tickets->setName('moi');
 		$tickets->setFirstName('remoi');
 		$tickets->setEmail('me@me.com');
+		$tickets->setTicketsType('demi-journée');
 
 		$command = new Command;
-		
 		$command->addTickets($tickets);
 
 		$country = new Country;
 		$country->setName('France');
 		$country->addTickets($tickets);
-
-		$TycketsType = new TycketsType;
-		$TycketsType->setType('journée');
-		$TycketsType->addTickets($tickets);
 
 
 		$em = $this->getDoctrine()->getManager();

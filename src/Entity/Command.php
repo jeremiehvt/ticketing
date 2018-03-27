@@ -15,6 +15,7 @@ class Command
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @ORM\HasLifeCycleCallbacks
      */
     private $id;
 
@@ -63,7 +64,6 @@ class Command
         $this->tickets = new ArrayCollection();
         $this->date = new \DateTime();
         $this->numberOfPlaces = 1;
-        $this->generateToken();
         $this->visitDay = new \DateTime();
     }
 
@@ -159,6 +159,9 @@ class Command
         return $this->tickets;
     }
 
+    /**
+    * @ORM\PrePersist
+    */
     public function generateToken()
     {
         $min = 1;

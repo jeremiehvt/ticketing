@@ -51,7 +51,7 @@ class Tickets
     private $country;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Command", inversedBy="tickets", cascade={"persist"})
+     * @ORM\ManyToOne(targetEntity="App\Entity\Command", inversedBy="tickets")
      */
     private $command;
 

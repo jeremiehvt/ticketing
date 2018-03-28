@@ -50,7 +50,9 @@ class CommandType extends AbstractType
                 'entry_options' => array('label'=>false),
                 'allow_add' => true,
                 'allow_delete' => true,
+                'label'=>false
             ))
+            ->add('save', SubmitType::class)
             
         ;
     }

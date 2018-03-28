@@ -29,9 +29,9 @@ class TicketsType extends AbstractType
                 'attr' => ['class' => 'js-datepicker'],
             ))
             ->add('specialRate', ChoiceType::class)
-            /*->add('country', CountryType::class, array(
+            ->add('country', CountryType::class, array(
                 'placeholder' => 'selectionner votre nationalité',
-            ))*/
+            ))
             
         ;
     }

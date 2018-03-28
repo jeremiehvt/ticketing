@@ -30,7 +30,7 @@
       // - le texte "__name__label__" qu'il contient par le label du champ
       // - le texte "__name__" qu'il contient par le numéro du champ
       var template = $container.attr('data-prototype')
-        .replace(/__name__label__/g, '' + (index+1))
+        .replace(/__name__label__/g, (index+1))
         .replace(/__name__/g,        index)
       ;
 

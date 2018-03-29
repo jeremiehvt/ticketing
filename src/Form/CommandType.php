@@ -46,8 +46,9 @@ class CommandType extends AbstractType
                     'demi-journée' => 'demi-journée',
                 ))
             )
-            ->add('billets', CollectionType::class, array(
-                'entry_type' => BilletType::class,
+            ->add('tickets', CollectionType::class, array(
+                'entry_type' => TicketType::class,
+                'entry_options' => array('label' => false),
                 'allow_add' => true,
                 'allow_delete' => true,
             ))

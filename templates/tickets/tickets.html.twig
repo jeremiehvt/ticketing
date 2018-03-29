@@ -24,11 +24,15 @@
 
 					<h5>Vos Billets</h5>
 
-					
-					
-					<a href="#" id="add_billets" class="btn btn-primary">Ajouter un billet</a>
+					<ul class="tickets" data-prototype="{{ form_widget(form.tickets.vars.prototype)|e('html_attr') }}"> 
 
-					{{form_row(form.billets)}}
+						{{ form_widget(form.tickets.vars.prototype.name)|e }}
+   
+					</ul>
+					
+					{#<a href="#" id="add_tickets" class="btn btn-primary">Ajouter un billet</a>#}
+
+					
 
 					{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
 					

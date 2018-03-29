@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; 
 use App\Form\CommandType;
 use App\Entity\Command;
-use App\Entity\Billet;
+use App\Entity\Ticket;
 
 /**
 * 
@@ -20,6 +20,15 @@ class TicketsController extends Abstractcontroller
 	public function tickets(Request $request) 
 	{
 		$command = new Command();
+
+		for ($i=0; $i < 5; $i++) { 
+
+			$ticket = new Ticket();
+			$ticket->setName('me');
+			$ticket->setFirstName('me');
+			$command->addTickets($ticket);
+		}
+		
 
 		$form = $this->createForm(CommandType::class, $command);
 

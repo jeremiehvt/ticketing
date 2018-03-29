@@ -51,9 +51,9 @@ class Command
     private $tycketsType;
 
     /**
-    * @ORM\OneToMany(targetEntity="App\Entity\Billet", mappedBy="command", cascade={"persist"})
+    * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="command", cascade={"persist"})
     */
-    private $billets;
+    private $tickets;
 
     public function getId()
     {
@@ -62,7 +62,7 @@ class Command
 
     public function __construct()
     {
-        $this->billets = new ArrayCollection();
+        $this->tickets = new ArrayCollection();
         $this->date = new \DateTime();
         $this->numberOfPlaces = 1;
         $this->visitDay = new \DateTime();
@@ -141,24 +141,27 @@ class Command
         return $this->tycketsType;
     }
 
-    public function addBillets(Billet $billet)
+    public function addTickets(Ticket $ticket)
     {
-             
-        $this->billets[] = $billet;
+        if (! $this->tickets->contains($ticket)) {
+             $this->tickets[] = $ticket;
 
-        $billet->setCommand($this);
+            $ticket->setCommand($this);
+        }
+             
+       
      
         return $this;
     }
 
-    public function removeBillets(Billet $billet)
+    public function removeTickets(Ticket $ticket)
     {
-        $this->billets->removeElement($billet);
+        $this->tickets->removeElement($ticket);
     }
 
-    public function getBillets()
+    public function getTickets()
     {
-        return $this->billets;
+        return $this->tickets;
     }
 
     /**

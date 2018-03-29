@@ -1,13 +1,13 @@
 
   $(document).ready(function() {
     // On récupère la balise <div> en question qui contient l'attribut « data-prototype » qui nous intéresse.
-    var $container = $('div#command_tickets');
+    var $container = $('div#command_billets');
 
     // On définit un compteur unique pour nommer les champs qu'on va ajouter dynamiquement
     var index = $container.find(':input').length;
 
     // On ajoute un nouveau champ à chaque clic sur le lien d'ajout.
-    $('#add_tickets').click(function(e) {
+    $('#add_billets').click(function(e) {
       addCategory($container);
 
       e.preventDefault(); // évite qu'un # apparaisse dans l'URL
@@ -30,7 +30,7 @@
       // - le texte "__name__label__" qu'il contient par le label du champ
       // - le texte "__name__" qu'il contient par le numéro du champ
       var template = $container.attr('data-prototype')
-        .replace(/__name__label__/g, (index+1))
+        .replace(/__name__label__/g, (index))
         .replace(/__name__/g,        index)
       ;
 

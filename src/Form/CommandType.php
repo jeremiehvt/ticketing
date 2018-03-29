@@ -4,6 +4,7 @@ namespace App\Form;
 
 //use App\Form\TicketsType;
 use App\Entity\Command;
+use App\Form\BilletType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -45,9 +46,8 @@ class CommandType extends AbstractType
                     'demi-journée' => 'demi-journée',
                 ))
             )
-            ->add('tickets', CollectionType::class, array(
-                'entry_type' => TicketsType::class,
-                'entry_options' => array('label'=>false),
+            ->add('billets', CollectionType::class, array(
+                'entry_type' => BilletType::class,
                 'allow_add' => true,
                 'allow_delete' => true,
             ))

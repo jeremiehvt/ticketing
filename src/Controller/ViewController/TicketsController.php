@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; 
 use App\Form\CommandType;
 use App\Entity\Command;
-use App\Entity\Tickets;
+use App\Entity\Billet;
 
 /**
 * 
@@ -29,7 +29,6 @@ class TicketsController extends Abstractcontroller
 		if ($form->isSubmitted() && $form->isValid()) {
 			
 			$em = $this->getDoctrine()->getManager();
-			var_dump($command->getTickets());
 			
 			$em->persist($command);
 

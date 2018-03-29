@@ -16,26 +16,27 @@ class AddOrderController extends AbstractController
 	/**
 	* @Route("/addOrder", name="addOrder")
 	*/
-	public function addOrder(Request $request)
+	public function addOrder()
 	{
+		$em = $this->getDoctrine()->getManager();
+		
 
+		$advert = new Tickets();
+		$advert->setName('me');
+		$advert->setFirstName('me');
+		$advert->setCountry('france');
 
 		
-		if ($request->method('POST') && $form->handleRequest($request)->isValid()) {
-			
-			$em = $this->getDoctrine()->getManager();
-			$em->persist($tickets);
-			
-			$em->persist($command);
+		$command = new Command();
+		$command->setEmail('me@me.com');
+		$command->setTycketsType('journée');
+		$command->addTickets($advert);
 
-			$em->flush();
+		$em->persist($command);
+		$em->flush();
 
-			
-			return new response("bonjour");
-		}
-
-		
-		
+		return new Response('ok');
+	
 	}
 	
 }

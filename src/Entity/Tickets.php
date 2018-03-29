@@ -3,8 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\Collection;
-use Doctrine\Common\Collections\ArrayCollection;
+
 
 
 
@@ -52,6 +51,7 @@ class Tickets
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Command", inversedBy="tickets")
+     * 
      */
     private $command;
 
@@ -60,6 +60,7 @@ class Tickets
         
         $this->birthDay = new \DateTime();
         $this->specialRate = 0;
+        $this->country = 'france';
     }
 
 

@@ -34,10 +34,10 @@ class TicketsType extends AbstractType
                 'required' => false
 
                 ))
-            ->add('country', CountryType::class, array(
+            /*->add('country', CountryType::class, array(
                 'placeholder' => 'selectionner votre nationalité',
                 'label' => false,
-            ))
+            ))*/
             
         ;
     }

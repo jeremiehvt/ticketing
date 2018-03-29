@@ -23,10 +23,13 @@ class TicketsController extends Abstractcontroller
 
 		$form = $this->createForm(CommandType::class, $command);
 
+		$form->handleRequest($request);
 
-		if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+
+		if ($form->isSubmitted() && $form->isValid()) {
 			
 			$em = $this->getDoctrine()->getManager();
+			var_dump($command->getTickets());
 			
 			$em->persist($command);
 

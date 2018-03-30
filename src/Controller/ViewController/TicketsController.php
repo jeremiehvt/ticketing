@@ -21,13 +21,13 @@ class TicketsController extends Abstractcontroller
 	{
 		$command = new Command();
 
-		for ($i=0; $i < 5; $i++) { 
+		//for ($i=0; $i < 5; $i++) { }
 
-			$ticket = new Ticket();
-			$ticket->setName('me');
-			$ticket->setFirstName('me');
-			$command->addTickets($ticket);
-		}
+			//$ticket = new Ticket();
+			//$ticket->setName('me');
+			//$ticket->setFirstName('me');
+			//$command->addTickets($ticket);
+		
 		
 
 		$form = $this->createForm(CommandType::class, $command);

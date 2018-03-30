@@ -55,6 +55,7 @@ class Command
     */
     private $tickets;
 
+
     public function getId()
     {
         return $this->id;
@@ -66,6 +67,7 @@ class Command
         $this->date = new \DateTime();
         $this->numberOfPlaces = 1;
         $this->visitDay = new \DateTime();
+        $this->billets = new ArrayCollection();
     }
 
     public function getEmail(): ?string
@@ -141,16 +143,14 @@ class Command
         return $this->tycketsType;
     }
 
-    public function addTickets(Ticket $ticket)
+    public function addTicket(Ticket $ticket)
     {
-        if (! $this->tickets->contains($ticket)) {
-             $this->tickets[] = $ticket;
-
-            $ticket->setCommand($this);
+        if (!$this->tickets->contains($ticket)) {
+            $this->tickets->add($ticket);  
         }
-             
-       
-     
+        
+        $ticket->setCommand($this);
+   
         return $this;
     }
 
@@ -180,4 +180,5 @@ class Command
 
         return $this;
     }
+
 }

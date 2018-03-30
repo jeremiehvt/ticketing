@@ -51,7 +51,7 @@ class Command
     private $tycketsType;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="command")
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="command", cascade={"persist"})
      */
     private $tickets;
 

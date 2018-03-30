@@ -37,6 +37,11 @@ class Ticket
     private $reduction;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $country;
+
+    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Command", inversedBy="tickets")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -91,6 +96,18 @@ class Ticket
     public function setReduction(bool $reduction): self
     {
         $this->reduction = $reduction;
+
+        return $this;
+    }
+
+     public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): self
+    {
+        $this->country = $country;
 
         return $this;
     }

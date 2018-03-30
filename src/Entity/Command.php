@@ -51,8 +51,8 @@ class Command
     private $tycketsType;
 
     /**
-    * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="command", cascade={"persist"})
-    */
+     * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="command")
+     */
     private $tickets;
 
 
@@ -142,27 +142,7 @@ class Command
     {
         return $this->tycketsType;
     }
-
-    public function addTicket(Ticket $ticket)
-    {
-        if (!$this->tickets->contains($ticket)) {
-            $this->tickets->add($ticket);  
-        }
-        
-        $ticket->setCommand($this);
-   
-        return $this;
-    }
-
-    public function removeTickets(Ticket $ticket)
-    {
-        $this->tickets->removeElement($ticket);
-    }
-
-    public function getTickets()
-    {
-        return $this->tickets;
-    }
+    
 
     /**
     * @ORM\PrePersist
@@ -177,6 +157,37 @@ class Command
         $token = str_shuffle($hex . uniqid());
 
         $this->token = $token;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ticket[]
+     */
+    public function getTickets(): Collection
+    {
+        return $this->tickets;
+    }
+
+    public function addTicket(Ticket $ticket): self
+    {
+        if (!$this->tickets->contains($ticket)) {
+            $this->tickets[] = $ticket;
+            $ticket->setCommand($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTicket(Ticket $ticket): self
+    {
+        if ($this->tickets->contains($ticket)) {
+            $this->tickets->removeElement($ticket);
+            // set the owning side to null (unless already changed)
+            if ($ticket->getCommand() === $this) {
+                $ticket->setCommand(null);
+            }
+        }
 
         return $this;
     }

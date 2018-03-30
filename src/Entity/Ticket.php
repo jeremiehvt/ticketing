@@ -32,19 +32,14 @@ class Ticket
     private $birthday;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean")
      */
     private $reduction;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Command", inversedBy="tickets")
+     * @ORM\JoinColumn(nullable=false)
      */
-    private $country;
-
-    /**
-    * @ORM\ManyToOne(targetEntity="App\Entity\Command", inversedBy="tickets")
-    * 
-    */
     private $command;
 
     public function getId()
@@ -100,27 +95,15 @@ class Ticket
         return $this;
     }
 
-    public function getCountry(): ?string
+    public function getCommand(): ?Command
     {
-        return $this->country;
+        return $this->command;
     }
 
-    public function setCountry(string $country): self
-    {
-        $this->country = $country;
-
-        return $this;
-    }
-
-    public function setCommand(Command $command)
+    public function setCommand(?Command $command): self
     {
         $this->command = $command;
 
         return $this;
-    }
-
-    public function getCommand()
-    {
-        return $this->command;
     }
 }

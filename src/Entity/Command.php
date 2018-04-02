@@ -42,6 +42,7 @@ class Command
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\GreaterThanOrEqual("today", message="impossible de commander pour un jours passer")
      */
     private $visitDay;
 

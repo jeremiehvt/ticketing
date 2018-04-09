@@ -47,6 +47,11 @@ class Ticket
      */
     private $command;
 
+    /**
+     * @ORM\Column(type="integer",nullable=true)
+     */
+    private $price;
+
     public function getId()
     {
         return $this->id;
@@ -110,6 +115,16 @@ class Ticket
         $this->country = $country;
 
         return $this;
+    }
+
+    public function setPrice(integer $price): self
+    {
+        $this->price = $price;
+    }
+
+    public function getPrice(): ?integer
+    {
+        return $this->price;
     }
 
     public function getCommand(): ?Command

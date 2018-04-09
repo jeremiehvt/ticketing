@@ -43,7 +43,7 @@ class Command
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\GreaterThanOrEqual("today", message="impossible de commander pour un jours passer", payload={"severity"="error"})
+     * @Assert\GreaterThanOrEqual("today", message="impossible de commander pour un jours passé", payload={"severity"="error"})
      */
     private $visitDay;
 
@@ -56,6 +56,11 @@ class Command
      * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="command", cascade={"persist"})
      */
     private $tickets;
+
+    /**
+     * @ORM\Column(type="integer",nullable=true)
+     */
+    private $price;
 
 
     public function getId()
@@ -70,6 +75,7 @@ class Command
         $this->numberOfPlaces = 1;
         $this->visitDay = new \DateTime();
         $this->billets = new ArrayCollection();
+        $this->price = 0;
     }
 
     public function getEmail(): ?string
@@ -144,8 +150,17 @@ class Command
     {
         return $this->tycketsType;
     }
-    
 
+    public function setPrice(integer $price): self
+    {
+        $this->price = $price;
+    }
+
+    public function getPrice(): ?integer
+    {
+        return $this->price;
+    }
+    
     /**
     * @ORM\PrePersist
     */

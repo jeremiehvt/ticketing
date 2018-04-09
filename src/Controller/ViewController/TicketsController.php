@@ -23,8 +23,6 @@ class TicketsController extends Abstractcontroller
 	{
 		$command = new Command();
 
-		
-		
 
 
 		$form = $this->createForm(CommandType::class, $command);
@@ -33,11 +31,15 @@ class TicketsController extends Abstractcontroller
 
 
 		if ($form->isSubmitted() && $form->isValid()) {
+
+			$tickets = $command->getTickets();
+
+			foreach ($ticket as $tickets) {
+				
+			}
 			
 			$em = $this->getDoctrine()->getManager();
-			
 			$em->persist($command);
-
 			$em->flush();
 
 			

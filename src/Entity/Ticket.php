@@ -52,6 +52,8 @@ class Ticket
      */
     private $price;
 
+
+
     public function getId()
     {
         return $this->id;
@@ -117,12 +119,14 @@ class Ticket
         return $this;
     }
 
-    public function setPrice(integer $price): self
+    public function setPrice(int $price): self
     {
         $this->price = $price;
+
+        return $this;
     }
 
-    public function getPrice(): ?integer
+    public function getPrice(): ?int
     {
         return $this->price;
     }

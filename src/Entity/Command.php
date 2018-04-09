@@ -75,7 +75,7 @@ class Command
         $this->numberOfPlaces = 1;
         $this->visitDay = new \DateTime();
         $this->billets = new ArrayCollection();
-        $this->price = 0;
+        
     }
 
     public function getEmail(): ?string
@@ -151,12 +151,23 @@ class Command
         return $this->tycketsType;
     }
 
-    public function setPrice(integer $price): self
+    /**
+    * @ORM\PrePersist
+    */
+    public function setPrice()
     {
-        $this->price = $price;
+        $tickets = $this->getTickets();
+
+        foreach ($tickets as $ticket) {
+            
+            $this->price += $ticket->getPrice();
+        }
+        //$this->price = $price;
+
+        return $this;
     }
 
-    public function getPrice(): ?integer
+    public function getPrice(): ?int
     {
         return $this->price;
     }

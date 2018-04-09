@@ -34,9 +34,12 @@ class TicketsController extends Abstractcontroller
 
 			$tickets = $command->getTickets();
 
-			foreach ($ticket as $tickets) {
+			foreach ($tickets as $ticket) {
+				$ticket->setPrice(12);
 				
 			}
+
+			
 			
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($command);

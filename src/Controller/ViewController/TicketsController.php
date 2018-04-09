@@ -5,6 +5,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; 
+use Symfony\Component\Validator\ConstraintViolation;
+use Symfony\Component\Validator\Constraint;
 use App\Form\CommandType;
 use App\Entity\Command;
 use App\Entity\Ticket;
@@ -21,14 +23,9 @@ class TicketsController extends Abstractcontroller
 	{
 		$command = new Command();
 
-		//for ($i=0; $i < 5; $i++) { }
+		
+		
 
-			//$ticket = new Ticket();
-			//$ticket->setName('me');
-			//$ticket->setFirstName('me');
-			//$command->addTickets($ticket);
-		
-		
 
 		$form = $this->createForm(CommandType::class, $command);
 

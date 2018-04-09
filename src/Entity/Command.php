@@ -43,7 +43,7 @@ class Command
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\GreaterThanOrEqual("today", message="impossible de commander pour un jours passer")
+     * @Assert\GreaterThanOrEqual("today", message="impossible de commander pour un jours passer", payload={"severity"="error"})
      */
     private $visitDay;
 

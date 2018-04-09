@@ -10,6 +10,8 @@
 
 					{{ form_errors(form) }}
 
+					
+
 					{{form_label(form.email, 'votre email', {'label_attr': {'class':'col-12','id':'email','for': 'email'}})}}
 					{{form_widget(form.email)}}
 
@@ -18,6 +20,7 @@
 
 					{{form_label(form.visitDay, 'jours de visite', {'label_attr': {'class':'col-12','id':'visitdays','for': 'visitdays'}}) }}
 					{{form_widget(form.visitDay)}}
+					{{form_errors(form.visitDay)}}
 
 					{{form_label(form.tycketsType, 'type de ticket', {'label_attr': {'class':'col-12','id':'type','for': 'type'}}) }}
 					{{form_widget(form.tycketsType)}}

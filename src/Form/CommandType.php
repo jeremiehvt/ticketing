@@ -24,16 +24,6 @@ class CommandType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('numberOfPlaces', ChoiceType::class, array(
-                'placeholder' => '1',
-                'choices' => array(
-                    '1' => 1,
-                    '2' => 2,
-                    '3' => 3,
-                    '4' => 4,
-                    '5' => 5,
-                )
-            ))
             ->add('email', EmailType::class)
             ->add('visitDay', DateType::class, array(
                 'widget' => 'single_text',

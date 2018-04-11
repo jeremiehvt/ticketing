@@ -47,7 +47,7 @@ class TicketsController extends Abstractcontroller
 				$priceCalculator->setAge();
 				$priceCalculator->setPrice();
 				$ticket->setPrice($priceCalculator->getPrice());
-				var_dump($priceCalculator->getAge(),$priceCalculator->getPrice(), $ticket->getReduction());					
+									
 			}
 						
 			$em = $this->getDoctrine()->getManager();

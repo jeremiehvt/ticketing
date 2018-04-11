@@ -77,10 +77,9 @@ class Command
     {
         $this->tickets = new ArrayCollection();
         $this->date = new \DateTime();
-        $this->numberOfPlaces = 1;
         $this->visitDay = new \DateTime();
         $this->billets = new ArrayCollection(); 
-        $this->paid = null;       
+        $this->paid = false;       
     }
 
     public function getEmail(): ?string
@@ -191,6 +190,16 @@ class Command
         $this->token = $token;
 
         return $this;
+    }
+
+    /**
+    * @ORM\PrePersist
+    */
+    public function getNumberOfTickets()
+    {
+       $number =  count($this->getTickets());
+
+       $this->setNumberOfPlaces($number);
     }
 
     /**

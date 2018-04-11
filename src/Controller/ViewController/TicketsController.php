@@ -10,6 +10,9 @@ use Symfony\Component\Validator\Constraint;
 use App\Form\CommandType;
 use App\Entity\Command;
 use App\Entity\Ticket;
+use App\Entity\Price;
+use App\Service\PriceCalculator;
+use App\Repository\PriceRepository;
 
 /**
 * 
@@ -19,10 +22,9 @@ class TicketsController extends Abstractcontroller
 	/**
 	* @Route("/billetterie", name="tickets")
 	*/
-	public function tickets(Request $request) 
+	public function tickets(Request $request, PriceCalculator $priceCalculator) 
 	{
 		$command = new Command();
-
 
 
 		$form = $this->createForm(CommandType::class, $command);
@@ -31,20 +33,26 @@ class TicketsController extends Abstractcontroller
 
 
 		if ($form->isSubmitted() && $form->isValid()) {
-
+			
+			$priceList = $this->getDoctrine()->getRepository(Price::class)->findAll();
+			
 			$tickets = $command->getTickets();
 
-			foreach ($tickets as $ticket) {
-				$ticket->setPrice(12);
-				
-			}
 
-			
-			
+		
+			foreach ($tickets as $ticket) {				
+				
+				$priceCalculator->setTicket($ticket);
+				$priceCalculator->setSpecialRate($ticket);
+				$priceCalculator->setAge();
+				$priceCalculator->setPrice();
+				$ticket->setPrice($priceCalculator->getPrice());
+				var_dump($priceCalculator->getAge(),$priceCalculator->getPrice(), $ticket->getReduction());					
+			}
+						
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($command);
 			$em->flush();
-
 			
 			return new response("bonjour");
 		}

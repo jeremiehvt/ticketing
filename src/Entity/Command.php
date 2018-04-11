@@ -62,6 +62,11 @@ class Command
      */
     private $price;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $paid;
+
 
     public function getId()
     {
@@ -74,8 +79,8 @@ class Command
         $this->date = new \DateTime();
         $this->numberOfPlaces = 1;
         $this->visitDay = new \DateTime();
-        $this->billets = new ArrayCollection();
-        
+        $this->billets = new ArrayCollection(); 
+        $this->paid = null;       
     }
 
     public function getEmail(): ?string
@@ -162,7 +167,6 @@ class Command
             
             $this->price += $ticket->getPrice();
         }
-        //$this->price = $price;
 
         return $this;
     }

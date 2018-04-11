@@ -34,7 +34,7 @@ class PriceRepository extends ServiceEntityRepository
             ->getResult()
         ;
     }
-    */
+   
 
     /*
     public function findOneBySomeField($value): ?Price

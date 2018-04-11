@@ -7,7 +7,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController; 
 use App\Entity\Command;
-use App\Entity\Tickets;
+use App\Entity\Ticket;
+use App\Service\MessageGenerator;
 
 
 
@@ -16,26 +17,12 @@ class AddOrderController extends AbstractController
 	/**
 	* @Route("/addOrder", name="addOrder")
 	*/
-	public function addOrder()
+	public function addOrder(MessageGenerator $messageGenerator)
 	{
-		$em = $this->getDoctrine()->getManager();
 		
-
-		$advert = new Tickets();
-		$advert->setName('me');
-		$advert->setFirstName('me');
-		$advert->setCountry('france');
-
-		
-		$command = new Command();
-		$command->setEmail('me@me.com');
-		$command->setTycketsType('journée');
-		$command->addTickets($advert);
-
-		$em->persist($command);
-		$em->flush();
-
-		return new Response('ok');
+		$message = $messageGenerator->getHappyMessage();
+    	$this->addFlash('success', $message);
+		return new Response($message);
 	
 	}
 	

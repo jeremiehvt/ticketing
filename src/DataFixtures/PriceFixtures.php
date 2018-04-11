@@ -10,7 +10,8 @@ class PriceFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-        $datas = array('normal' => 16, 'enfant' => 8, 'senior' => 12, 'réduit' => 10,);
+        
+        $datas = array('normal' => 16, 'enfant' => 8, 'senior' => 12, 'réduit' => 10,'gratuit'=>0);
 
         foreach ($datas as $key => $data) {
         	

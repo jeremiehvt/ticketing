@@ -26,6 +26,7 @@ class Price
      */
     private $cost;
 
+
     public function getId()
     {
         return $this->id;

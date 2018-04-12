@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TicketRepository")
@@ -18,16 +19,36 @@ class Ticket
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\Regex(pattern="/\d/",
+     *     match=false,
+     *     message="Votre nom ne peut pas contenir de nombre")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 20,
+     *      minMessage = "votre nom doit contenir au moins {{ limit }} charactères",
+     *      maxMessage = "votre nom doit contenir moins de {{ limit }} charactères")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotNull()
+     * @Assert\Regex(pattern="/\d/",
+     *     match=false,
+     *     message="Votre prénom ne peut pas contenir de nombre")
+     * @Assert\Length(
+     *      min = 2,
+     *      max = 20,
+     *      minMessage = "votre prénom doit contenir au moins {{ limit }} charactères",
+     *      maxMessage = "votre prénom doit contenir moins de {{ limit }} charactères")
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\DateTime()
+     * @Assert\NotNull()
      */
     private $birthday;
 
@@ -38,6 +59,7 @@ class Ticket
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Country()
      */
     private $country;
 

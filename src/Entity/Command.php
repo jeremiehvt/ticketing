@@ -39,6 +39,8 @@ class Command
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email(message= "{{ Value }} n'est pas un email valide", checkMX=true, checkHost= true)
+     * @Assert\NotNull()
      */
     private $email;
 
@@ -46,16 +48,20 @@ class Command
      * @ORM\Column(type="datetime")
      * @Assert\GreaterThanOrEqual("today", message="impossible de commander pour un jour passé")
      * @AcmeAssert\DateCounter
+     * @Assert\DateTime()
+     * @Assert\NotNull()
      */
     private $visitDay;
 
     /**
      * @ORM\Column(type="string",length=255, nullable=false)
+     * @Assert\NotNull()
      */
     private $tycketsType;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Ticket", mappedBy="command", cascade={"persist"})
+     * @Assert\Valid
      */
     private $tickets;
 

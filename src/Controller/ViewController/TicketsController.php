@@ -12,6 +12,7 @@ use App\Entity\Command;
 use App\Entity\Ticket;
 use App\Entity\Price;
 use App\Service\PriceCalculator;
+use App\Service\TicketCounterByDate;
 use App\Repository\PriceRepository;
 
 /**

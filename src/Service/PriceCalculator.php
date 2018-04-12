@@ -38,8 +38,7 @@ class PriceCalculator
 
 			$this->age = $now - $birthYear;
 
-			return $this;		
-
+			return $this;
 	}
 
 	public function setPrice()

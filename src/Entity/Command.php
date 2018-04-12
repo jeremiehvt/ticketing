@@ -5,8 +5,8 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator as AcmeAssert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommandRepository")
@@ -43,7 +43,8 @@ class Command
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\GreaterThanOrEqual("today", message="impossible de commander pour un jours passé", payload={"severity"="error"})
+     * @Assert\GreaterThanOrEqual("today", message="impossible de commander pour un jour passé")
+     * @AcmeAssert\DateCounter
      */
     private $visitDay;
 
@@ -78,7 +79,6 @@ class Command
         $this->tickets = new ArrayCollection();
         $this->date = new \DateTime();
         $this->visitDay = new \DateTime();
-        $this->billets = new ArrayCollection(); 
         $this->paid = false;       
     }
 
@@ -187,9 +187,7 @@ class Command
         $hex = bin2hex($bytes);
         $token = str_shuffle($hex . uniqid());
 
-        $this->token = $token;
-
-        return $this;
+        $this->setToken($token);
     }
 
     /**

@@ -14,7 +14,7 @@ use App\Entity\Command;
 class TicketCounterByDate
 {
 	private $em;
-	private $count;
+	private $count;	
 
 	
 	public function __construct(EntityManagerInterface $em)

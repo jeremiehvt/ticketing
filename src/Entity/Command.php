@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
 use App\Validator as AcmeAssert;
 
 /**
@@ -229,6 +230,28 @@ class Command
         }
 
         return $this;
+    }
+
+    /**
+     * @Assert\Callback
+     */
+    public function validate(ExecutionContextInterface $context, $payload)
+    {
+
+        $today = new \DateTime();
+        $visit = $this->getVisitDay();
+        $type = $this->getTycketsType();
+
+        if ($visit->format('Y-m-d') === $today->format('Y-m-d')) {
+            
+                if ($type === 'journée' && $today->format('H') >= 14) {
+
+                
+                     $context->buildViolation('vous ne pouvez commander pour une journée après 14h')
+                    ->atPath('tycketsType')
+                    ->addViolation();
+            }
+        }
     }
 
 }

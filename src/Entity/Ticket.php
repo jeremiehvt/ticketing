@@ -47,6 +47,7 @@ class Ticket
 
     /**
      * @ORM\Column(type="datetime")
+     * @Assert\GreaterThanOrEqual("today", message="vous ne pouvez commander pour une personne qui est né aujourd'hui ou qui n'est pas encore né")
      * @Assert\DateTime()
      * @Assert\NotNull()
      */

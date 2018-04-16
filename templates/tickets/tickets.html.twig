@@ -1,4 +1,5 @@
 {% extends "layout.html.twig" %}
+{% form_theme form 'form/form_errors.html.twig' %}
 
 {% block core %}
 <div class="jumbotron jumbotron-fluid mb-0 bg-light">
@@ -9,15 +10,23 @@
 				{{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
 					{{ form_errors(form) }}
-
 					
-
-					{{form_label(form.email, 'votre email', {'label_attr': {'class':'col-12','id':'email','for': 'email'}})}}
-					{{form_widget(form.email)}}
-
+					
+					<div class="form-group row col-12">
+					{{form_label(form.email, 'votre email', {'label_attr': {'class':'col-2 col-form-label','id':'email','for': 'email'}})}}
+					<div class="col-6">
+					{{form_widget(form.email, {'attr': {'class': 'form-control'}})}}
+					</div>
+					{{form_errors(form.email)}}
+					</div>
+						
+					<div class="form-group col-6">
 					{{form_label(form.visitDay, 'jours de visite', {'label_attr': {'class':'col-12','id':'visitdays','for': 'visitdays'}}) }}
 					{{form_widget(form.visitDay)}}
 					{{form_errors(form.visitDay)}}
+					</div>
+
+					
 
 					{{form_label(form.tycketsType, 'type de ticket', {'label_attr': {'class':'col-12','id':'type','for': 'type'}}) }}
 					{{form_widget(form.tycketsType)}}

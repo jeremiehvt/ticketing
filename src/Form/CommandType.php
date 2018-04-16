@@ -44,7 +44,7 @@ class CommandType extends AbstractType
                 'by_reference' => false,
                 'label' => false,
             ))
-            ->add('save', SubmitType::class)
+            ->add('commander', SubmitType::class)
             
         ;
     }

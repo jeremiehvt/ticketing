@@ -67,20 +67,18 @@
   */
 
 
-
-
 var $collectionHolder;
 
 // setup an "add a tag" link
-var $addTagLink = $('<a href="#" id="add_tickets">Ajouter un billet</a>');
-var $newLinkLi = $('<li></li>').append($addTagLink);
+var $addTagLink = $('<div class="py-2"><a class="btn btn-info" href="#" id="add_tickets">Ajouter un billet</a></div>');
+var $newLinkLi = $('<div></div>').append($addTagLink);
 
 jQuery(document).ready(function() {
     // Get the ul that holds the collection of tags
-    $collectionHolder = $('ul.tickets');
+    $collectionHolder = $('div.tickets');
 
     // add a delete link to all of the existing tag form li elements
-    $collectionHolder.find('li').each(function() {
+    $collectionHolder.find('div').each(function() {
         addTagFormDeleteLink($(this));
     });
 
@@ -122,7 +120,7 @@ function addTagForm($collectionHolder, $newLinkLi) {
     $collectionHolder.data('index', index + 1);
 
     // Display the form in the page in an li, before the "Add a tag" link li
-    var $newFormLi = $('<li></li>').append(newForm);
+    var $newFormLi = $('<div class="form-group row col-12"></div>').append(newForm);
     $newLinkLi.before($newFormLi);
 
      // add a delete link to the new form
@@ -131,7 +129,7 @@ function addTagForm($collectionHolder, $newLinkLi) {
 
 
 function addTagFormDeleteLink($tagFormLi) {
-    var $removeFormA = $('<a href="#">delete this tag</a>');
+    var $removeFormA = $('<div class="py-2"><a class="btn btn-danger" href="#">supprimer ce billet</a></div>');
     $tagFormLi.append($removeFormA);
 
     $removeFormA.on('click', function(e) {

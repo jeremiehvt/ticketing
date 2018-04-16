@@ -76,6 +76,7 @@ class PriceCalculator
 			$this->price = $price->getCost();
 
 			return $this;
+			
 		} elseif (12 < $this->age && $this->specialRate === true) {
 
 			$this->rate = 'réduit';

@@ -35,7 +35,7 @@ class TicketsController extends Abstractcontroller
 
 		if ($form->isSubmitted() && $form->isValid()) {
 			
-			$priceList = $this->getDoctrine()->getRepository(Price::class)->findAll();
+			//$priceList = $this->getDoctrine()->getRepository(Price::class)->findAll();
 			
 			$tickets = $command->getTickets();
 
@@ -47,6 +47,7 @@ class TicketsController extends Abstractcontroller
 				$priceCalculator->setSpecialRate($ticket);
 				$priceCalculator->setAge();
 				$priceCalculator->setPrice();
+				
 				$ticket->setPrice($priceCalculator->getPrice());
 									
 			}

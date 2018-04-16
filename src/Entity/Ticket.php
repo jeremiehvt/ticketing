@@ -47,7 +47,7 @@ class Ticket
 
     /**
      * @ORM\Column(type="datetime")
-     * @Assert\GreaterThanOrEqual("today", message="vous ne pouvez commander pour une personne qui est né aujourd'hui ou qui n'est pas encore né")
+     * @Assert\LessThanOrEqual("today", message="vous ne pouvez commander pour une personne qui est né aujourd'hui ou qui n'est pas encore né")
      * @Assert\DateTime()
      * @Assert\NotNull()
      */
@@ -56,7 +56,7 @@ class Ticket
     /**
      * @ORM\Column(type="boolean")
      */
-    private $reduction;
+    private $reduction = false;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -71,10 +71,9 @@ class Ticket
     private $command;
 
     /**
-     * @ORM\Column(type="integer",nullable=true)
+     * @ORM\Column(type="integer",nullable=false)
      */
     private $price;
-
 
 
     public function getId()

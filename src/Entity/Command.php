@@ -39,7 +39,7 @@ class Command
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Email(message= "{{ Value }} n'est pas un email valide", checkMX=true, checkHost= true)
+     * @Assert\Email(message= "{{ Value }} n'est pas un email valide", checkMX=true, checkHost=true)
      * @Assert\NotNull()
      */
     private $email;
@@ -66,7 +66,7 @@ class Command
     private $tickets;
 
     /**
-     * @ORM\Column(type="integer",nullable=true)
+     * @ORM\Column(type="integer", nullable=false)
      */
     private $price;
 
@@ -187,12 +187,12 @@ class Command
     */
     public function generateToken()
     {
-        $min = 1;
+        $min = 4;
         $max = 10;
         $random = mt_rand($min, $max);
         $bytes = openssl_random_pseudo_bytes($random);
         $hex = bin2hex($bytes);
-        $token = str_shuffle($hex . uniqid());
+        $token = str_shuffle($hex);
 
         $this->setToken($token);
     }

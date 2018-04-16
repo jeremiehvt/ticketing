@@ -43,12 +43,11 @@ class TicketsController extends Abstractcontroller
 		
 			foreach ($tickets as $ticket) {				
 				
-				$priceCalculator->setTicket($ticket);
-				$priceCalculator->setSpecialRate($ticket);
-				$priceCalculator->setAge();
-				$priceCalculator->setPrice();
 				
-				$ticket->setPrice($priceCalculator->getPrice());
+				
+				$price = $priceCalculator->setPrice($ticket);
+				
+				$ticket->setPrice($price);
 									
 			}
 						

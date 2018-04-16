@@ -35,7 +35,7 @@ class Command
     /**
      * @ORM\Column(type="datetime")
      */
-    private $date;
+    private $commandDate;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -84,8 +84,8 @@ class Command
     public function __construct()
     {
         $this->tickets = new ArrayCollection();
-        $this->date = new \DateTime();
-        $this->visitDay = new \DateTime();
+        $this->commandDate = new \DateTime();
+        
         $this->paid = false;       
     }
 
@@ -138,16 +138,16 @@ class Command
         return $this;
     }
 
-    public function setDate(\DateTimeInterface $date): self
+    public function setCommandDate(\DateTimeInterface $ommandDate): self
     {
-        $this->date = $date;
+        $this->ommandDate = $ommandDate;
 
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getCommandDate(): ?\DateTimeInterface
     {
-        return $this->date;
+        return $this->commandDate;
     }
 
     public function setTycketsType(string $tycketsType): self

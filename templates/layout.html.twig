@@ -29,7 +29,7 @@
     
     <div id="contact" class="jumbotron jumbotron-fluid pb-0 my-0">
    		<div class="container">
-   		    <h2 class="col-12 pb-4" id="contact">Infos, contact et horaires <a class="btn btn-primary rounded-circle" data-toggle="collapse" href=".multi-collapse" role="button" aria-expanded="false" aria-controls="datacontact datacontact1 datacontact2"><i class="fas fa-angle-down"></i></a></h2>
+   		    <h2 class="col-12 pb-4" id="contact">Infos, contact, horaires et prix <a class="btn btn-primary rounded-circle" data-toggle="collapse" href=".multi-collapse" role="button" aria-expanded="false" aria-controls="datacontact datacontact1 datacontact2"><i class="fas fa-angle-down"></i></a></h2>
    		    
 	   			<div class="row">
 	   				<div class="collapse multi-collapse col-6 border-right" id="datacontact">
@@ -67,6 +67,16 @@
 						<ul class="col-md-12 list-unstyled">
 							<li>Pour toute demande particulière veuillez nous contacter par <a class="badge badge-primary badge-pill" href="mailto:jeremiehvt@gmail.com">mail</a>, ou par téléphone au 01-89-89-89-89</li>
 							<li></li>
+						</ul>
+						<h5 class="col-md-12">Prix : </h5>
+						<ul class="col-md-12 list-unstyled">
+							{{render(controller(
+							'App\\Controller\\ViewController\\PriceController::showPrice'
+							))}}		
+						</ul>
+
+						<ul class="col-md-12 list-unstyled">
+							<small class="form-text text-muted">enfant à partir de 4 ans jusqu'à 12 ans, normal de 12 ans à 59 ans et senior à partir de 60 ans, gratuit pour les enfants de moins de 4 ans, tarif réduit pour les invalides, étudiants et les bénéficiaires d'un régime particulier </small>
 						</ul>
 	   				</div>
 	   			</div>

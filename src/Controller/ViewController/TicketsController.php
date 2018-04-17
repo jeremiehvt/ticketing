@@ -27,7 +27,6 @@ class TicketsController extends Abstractcontroller
 	{
 		$command = new Command();
 
-
 		$form = $this->createForm(CommandType::class, $command);
 
 		$form->handleRequest($request);
@@ -35,12 +34,11 @@ class TicketsController extends Abstractcontroller
 
 		if ($form->isSubmitted() && $form->isValid()) {
 			
-			//$priceList = $this->getDoctrine()->getRepository(Price::class)->findAll();
+			
+			$this->addFlash('note','votre commande à été enregistré');
 			
 			$tickets = $command->getTickets();
-
-
-		
+	
 			foreach ($tickets as $ticket) {				
 				
 				
@@ -57,6 +55,8 @@ class TicketsController extends Abstractcontroller
 			
 			return new response("bonjour");
 		}
+
+		
 
 		return $this->render('tickets/tickets.html.twig', array(
 			'form'=>$form->createView(),

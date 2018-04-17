@@ -17,7 +17,7 @@
 					
 					
 					<div class="form-group row col-12">
-						{{form_label(form.email, 'votre email', {'label_attr': {'class':'col-2 col-form-label','id':'email','for': 'email'}})}}
+						{{form_label(form.email, 'votre email', {'label_attr': {'class':'col-3 col-form-label','id':'email','for': 'email'}})}}
 							<div class="col-6">
 								{{form_widget(form.email, {'attr': {'class': 'form-control'}})}}
 							</div>
@@ -25,7 +25,7 @@
 					</div>
 						
 					<div class="form-group row col-12">
-						{{form_label(form.visitDay, 'jours de visite', {'label_attr': {'class':'col-2','id':'visitdays','for': 'visitdays'}}) }}
+						{{form_label(form.visitDay, 'jours de visite', {'label_attr': {'class':'col-3','id':'visitdays','for': 'visitdays'}}) }}
 							<div class="col-6">
 								{{form_widget(form.visitDay, {'attr': {'class': 'form-control'}})}}
 							</div>
@@ -34,7 +34,7 @@
 
 					
 					<div class="form-group row col-12">
-						{{form_label(form.tycketsType, 'type de ticket', {'label_attr': {'class':'col-2','id':'type','for': 'type'}}) }}
+						{{form_label(form.tycketsType, 'type de ticket', {'label_attr': {'class':'col-3','id':'type','for': 'type'}}) }}
 							<div class="col-6">
 								{{form_widget(form.tycketsType, {'attr' : {'class': 'form-control'}})}}
 							</div>
@@ -48,36 +48,37 @@
 						<div class="col-12">
 							<div class="jumbotron py-3">
 
-								<h5 class="col-12">Vos Billets</h5>
+								
 
 								<div class="tickets" data-prototype="
 
-							{{ form_label(form.tickets.vars.prototype.name, 'nom', {'label_attr': {'class':'col-2 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
-							{{ form_widget(form.tickets.vars.prototype.name, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
+									{{ form_label(form.tickets.vars.prototype.name, 'nom', {'label_attr': {'class':'col-2 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
+									{{ form_widget(form.tickets.vars.prototype.name, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
 
-							{{ form_label(form.tickets.vars.prototype.firstName, 'prénom', {'label_attr': {'class':'col-2 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
-							{{ form_widget(form.tickets.vars.prototype.firstName, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
+									{{ form_label(form.tickets.vars.prototype.firstName, 'prénom', {'label_attr': {'class':'col-2 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
+									{{ form_widget(form.tickets.vars.prototype.firstName, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
 
-							{{ form_label(form.tickets.vars.prototype.birthday, 'date de naissance', {'label_attr': {'class':'col-4 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
-							{{ form_widget(form.tickets.vars.prototype.birthday, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
-
-
-							{{ form_label(form.tickets.vars.prototype.reduction, 'tarif réduit', {'label_attr': {'class':'col-4 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
-							{{ form_widget(form.tickets.vars.prototype.reduction, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
+									{{ form_label(form.tickets.vars.prototype.birthday, 'date de naissance', {'label_attr': {'class':'col-4 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
+									{{ form_widget(form.tickets.vars.prototype.birthday, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
 
 
-							{{ form_widget(form.tickets.vars.prototype.country, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
+									{{ form_label(form.tickets.vars.prototype.reduction, 'tarif réduit', {'label_attr': {'class':'col-4 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
+									{{ form_widget(form.tickets.vars.prototype.reduction, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
 
-							">
 
-									
+									{{ form_widget(form.tickets.vars.prototype.country, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
+
+								">
+
+							
+							
 
 							</div>
 
 							</div>
 							
+							
 						</div>
-
 											
 					<div class="col-12 pt-3">
 

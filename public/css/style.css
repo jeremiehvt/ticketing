@@ -62,3 +62,10 @@ body {
 	color: #383838;	
 
 }
+
+#formErrors {
+	color:white;
+	background-color: #fc6464;
+	border-radius: 5px;
+	text-align: center;
+}

@@ -2,6 +2,8 @@
 {% form_theme form 'form/form_errors.html.twig' %}
 
 
+{% import 'form/proto.html.twig' as formMacro %}
+
 
 {% block core %}
 <div class="jumbotron jumbotron-fluid mb-0 bg-light">
@@ -45,40 +47,19 @@
 
 					
 
-						<div class="col-12">
-							<div class="jumbotron py-3">
+						
+
+								<div class="jumbotron py-3">
+
+									<div class="tickets" data-prototype="{{ formMacro.protoRow(form.tickets.vars.prototype)|e('html_attr') }}"></div>
+
+								</div>
 
 								
-
-								<div class="tickets" data-prototype="
-
-									{{ form_label(form.tickets.vars.prototype.name, 'nom', {'label_attr': {'class':'col-2 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
-									{{ form_widget(form.tickets.vars.prototype.name, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
-
-									{{ form_label(form.tickets.vars.prototype.firstName, 'prénom', {'label_attr': {'class':'col-2 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
-									{{ form_widget(form.tickets.vars.prototype.firstName, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
-
-									{{ form_label(form.tickets.vars.prototype.birthday, 'date de naissance', {'label_attr': {'class':'col-4 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
-									{{ form_widget(form.tickets.vars.prototype.birthday, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
-
-
-									{{ form_label(form.tickets.vars.prototype.reduction, 'tarif réduit', {'label_attr': {'class':'col-4 pt-1','id':'type','for': 'type'}})|e('html_attr') }}
-									{{ form_widget(form.tickets.vars.prototype.reduction, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
-
-
-									{{ form_widget(form.tickets.vars.prototype.country, {'attr' : {'class': 'form-control'}})|e('html_attr') }}
-
-								">
-
 							
 							
 
-							</div>
-
-							</div>
-							
-							
-						</div>
+						
 											
 					<div class="col-12 pt-3">
 

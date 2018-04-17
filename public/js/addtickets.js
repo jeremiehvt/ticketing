@@ -70,8 +70,8 @@
 var $collectionHolder;
 
 // setup an "add a tag" link
-var $addTagLink = $('<div class="py-2"><a class="btn btn-info" href="#" id="add_tickets">Ajouter un billet</a></div>');
-var $newLinkLi = $('<div></div>').append($addTagLink);
+var $addTagLink = $('<div><a class="btn btn-info" href="#" id="add_tickets">Ajouter un billet</a></div>');
+var $newLinkLi = $('<div class="form-group row col-12"></div>').append($addTagLink);
 
 jQuery(document).ready(function() {
     // Get the ul that holds the collection of tags

@@ -43,23 +43,11 @@
 						{{form_errors(form.tycketsType)}}
 					</div>
 
-					
+					<div class="jumbotron py-3">
 
-					
+						<div class="tickets" data-prototype="{{ formMacro.protoRow(form.tickets.vars.prototype)|e('html_attr') }}"></div>
 
-						
-
-								<div class="jumbotron py-3">
-
-									<div class="tickets" data-prototype="{{ formMacro.protoRow(form.tickets.vars.prototype)|e('html_attr') }}"></div>
-
-								</div>
-
-								
-							
-							
-
-						
+					</div>	
 											
 					<div class="col-12 pt-3">
 

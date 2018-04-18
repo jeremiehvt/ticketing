@@ -1,7 +1,10 @@
 
 {% for price in priceList %}
-	<li>{{price.name}} : <span>{{price.cost}} €</span></li>
+
+	<li>normal : <span>{{price.normal}} €</span></li>
+	<li>enfant : <span>{{price.children}} €</span></li>
+	<li>senior : <span>{{price.senior}} €</span></li>
+	<li>tarif réduit : <span>{{price.reduct}} €</span></li>
+	<li>gratuit pour les moins de 4 ans</li>
+
 {% endfor %}
-
-
-

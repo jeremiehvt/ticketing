@@ -17,14 +17,29 @@ class Price
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
-    private $name;
+    private $normal;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $cost;
+    private $children;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $senior;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $reduct;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $free;
 
 
     public function getId()
@@ -32,26 +47,63 @@ class Price
         return $this->id;
     }
 
-    public function getName(): ?string
+
+    public function getNormal(): ?int
     {
-        return $this->name;
+        return $this->normal;
     }
 
-    public function setName(string $name): self
+    public function setNormal(int $normal): self
     {
-        $this->name = $name;
+        $this->normal = $normal;
 
         return $this;
     }
 
-    public function getCost(): ?int
+    public function getChildren(): ?int
     {
-        return $this->cost;
+        return $this->children;
     }
 
-    public function setCost(int $cost): self
+    public function setChildren(int $children): self
     {
-        $this->cost = $cost;
+        $this->children = $children;
+
+        return $this;
+    }
+
+    public function getSenior(): ?int
+    {
+        return $this->senior;
+    }
+
+    public function setSenior(int $senior): self
+    {
+        $this->senior = $senior;
+
+        return $this;
+    }
+
+    public function getReduct(): ?int
+    {
+        return $this->reduct;
+    }
+
+    public function setReduct(int $reduct): self
+    {
+        $this->reduct = $reduct;
+
+        return $this;
+    }
+
+    public function getFree(): ?int
+    {
+        return $this->free;
+    }
+
+    public function setFree(int $free): self
+    {
+        $this->free = $free;
 
         return $this;
     }

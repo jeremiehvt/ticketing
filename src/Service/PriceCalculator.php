@@ -18,6 +18,7 @@ class PriceCalculator
 	private $specialRate;
 	private $price;
 	private $em;
+	private $priceEntity;
 	
 	public function __construct(EntityManagerInterface $em)
 	{
@@ -40,45 +41,47 @@ class PriceCalculator
 		$this->age = $now - $birthYear;
 
 		$this->specialRate = $ticket->getReduction();
+
+		$priceEntity = $this->em->getRepository(Price::class)->findAll();
 		
 
 		if (12 <= $this->age && $this->age <60 && $this->specialRate === false) {
 			
-			$this->rate = 'normal';
-			$price = $this->em->getRepository(Price::class)->findOneBy(array('name' => $this->rate));
-			$this->price = $price->getCost();
-
+			foreach ($priceEntity as $cost) {
+				$this->price = $cost->getNormal();
+			}
+			
 			return $this->price;
 
-		} elseif (4 <= $this->age && $this->age <12 && $this->specialRate === false) {
+		} elseif (4 <= $this->age && $this->age <12) {
 
-			$this->rate = 'enfant';
-			$price = $this->em->getRepository(Price::class)->findOneBy(array('name' => $this->rate));
-			$this->price = $price->getCost();
+			foreach ($priceEntity as $cost) {
+				$this->price = $cost->getChildren();
+			}
 
 			return $this->price;
 
 		} elseif ($this->age >=60 && $this->specialRate === false) {
 
-			$this->rate = 'senior';
-			$price = $this->em->getRepository(Price::class)->findOneBy(array('name' => $this->rate));
-			$this->price = $price->getCost();
+			foreach ($priceEntity as $cost) {
+				$this->price = $cost->getSenior();
+			}
 
 			return $this->price;
 
-		} elseif (0 <= $this->age && $this->age <4 && $this->specialRate === false) {
+		} elseif (0 <= $this->age && $this->age <4) {
 
-			$this->rate = 'gratuit';
-			$price = $this->em->getRepository(Price::class)->findOneBy(array('name' => $this->rate));
-			$this->price = $price->getCost();
+			foreach ($priceEntity as $cost) {
+				$this->price = $cost->getFree();
+			}
 
 			return $this->price;
 			
 		} elseif (12 < $this->age && $this->specialRate === true) {
 
-			$this->rate = 'réduit';
-			$price = $this->em->getRepository(Price::class)->findOneBy(array('name' => $this->rate));
-			$this->price = $price->getCost();
+			foreach ($priceEntity as $cost) {
+				$this->price = $cost->getReduct();
+			}
 
 			return $this->price;
 		}

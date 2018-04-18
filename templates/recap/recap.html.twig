@@ -1,0 +1,70 @@
+{% extends "layout.html.twig" %}
+
+{% block core %}
+
+	<div class="jumbotron jumbotron-fluid mb-0 bg-light">
+		<div class="container" id="recap">
+			<div class="row">
+				<h3 class="col-12 mb-5">Commande Numéro : <span>{{command.token}}</span></h3>
+				<div class="jumbotron mx-3">
+
+					<div class="container">
+						<div class="row">
+
+							<div class="col-6 border-right">
+								<h5 class="col-12">Vos détails personnel</h5>
+								<ul class="col-12 list-unstyled">
+									<li>votre email : <span>{{command.email}}</span></li>
+									<li>date de votre commande : <span>{{command.commandDate|date("d/m/Y")}} passée à {{command.commandDate|date("H")}}h</span></li>
+								</ul>
+							</div>
+
+							<div class="col-6">
+								<h5 class="col-12">Détail concernant la visite</h5>
+								<ul class="col-12 list-unstyled">
+									<li>votre jour de visite : <span>{{command.commandDate|date("d/m/Y")}}</span></li>
+									<li>type de visite : <span>{{command.tycketsType}}</span></li>
+								</ul>
+							</div>
+
+							<div class="col-12 mt-3">
+							{% for ticket in command.tickets %}
+
+								<div class="jumbotron bg-light">
+									<div class="container">
+										<div class="row">
+											<h5 class="col-12 border-bottom pb-3 mb-3">Votre Commande</h5>
+											<div class="col-12 border-bottom">
+												<ul class="col-12 list-unstyled">
+													<li>Nom : <span>{{ticket.name}}</span></li>
+													<li>Prénom : <span>{{ticket.firstname}}</span></li>
+													<li>Date de Naissance : <span>{{ticket.birthday|date("d/m/Y")}}</span></li>
+													<li>Réduction : <span>
+														{% if ticket.reduction is same as(false) %}
+															non{% else %}
+															oui{% endif %}
+														</span></li>
+													<li>Pays : <span>{{ticket.country}}</span></li>
+												</ul>
+												
+											</div>
+										</div>
+									</div>
+								</div>
+
+							{% endfor %}
+							</div>
+							<div class="col-12 pt-3">
+								<h5 class="col-md-4">Nombre de place : <span>{{command.numberOfPlaces}}</span></h5>
+								<h5 class="col-md-4">prix total : <span>{{command.price}}€</span></h5>
+								<a href="" class="btn btn-primary mt-4">Valider et payer</a>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

@@ -33,8 +33,6 @@ body {
 #contact .btn:focus {
 	border: none;
 	box-shadow: none;
-	transform: rotate(180deg);
-	-webkit-transform: rotate(180deg);
 
 }
 
@@ -42,6 +40,30 @@ body {
 
 	color: #990000;
 	font-weight: bold;
+}
+
+#recap span {
+	color: #990000;
+	font-weight: bold;
+}
+
+#recap .btn{
+
+	color: #efefef;
+	
+	border: none;
+	border-style: none;
+	background-color: #990000;
+	box-shadow: none;
+}
+
+#recap .btn:focus {
+
+	color: #efefef;
+	
+	border-style: none;
+	border: none;
+	background-color: #282828;
 }
 
 #homepage {

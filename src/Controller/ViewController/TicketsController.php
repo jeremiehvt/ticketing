@@ -53,7 +53,7 @@ class TicketsController extends Abstractcontroller
 			$em->persist($command);
 			$em->flush();
 			
-			return new response("bonjour");
+			return $this->redirectToRoute('recap', array('command_id'=>$command->getToken()));
 		}
 
 		

@@ -197,6 +197,18 @@ class Command
         $this->setToken($token);
     }
 
+    public function setPaid($paid)
+    {
+        $this->paid = $paid;
+
+        return $this;
+    }
+
+    public function getPaid(): ?bool
+    {
+        return $this->paid;
+    }
+
     /**
     * @ORM\PrePersist
     */

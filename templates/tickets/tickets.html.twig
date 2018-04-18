@@ -46,12 +46,14 @@
 					<div class="jumbotron py-3">
 
 						<div class="tickets" data-prototype="{{ formMacro.protoRow(form.tickets.vars.prototype)|e('html_attr') }}"></div>
-
+						{{ form_widget(form.tickets) }}
 					</div>	
 											
 					<div class="col-12 pt-3">
 
 						{{ form_widget(form.commander, {'attr': {'class': 'btn btn-primary'}}) }}
+
+
 
 					</div>
 

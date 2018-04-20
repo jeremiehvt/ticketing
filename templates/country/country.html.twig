@@ -1,0 +1,258 @@
+{%macro country(value)%}
+	{%if value=="FR"%}France
+	{%elseif value=="AF"%}Afghanistan
+	{%elseif value=="ZA"%}Afrique du Sud
+	{%elseif value=="AL"%}Albanie
+	{%elseif value=="DZ"%}Algérie
+	{%elseif value=="DE"%}Allemagne
+	{%elseif value=="AD"%}Andorre
+	{%elseif value=="AO"%}Angola
+	{%elseif value=="AI"%}Anguilla
+	{%elseif value=="AQ"%}Antarctique
+	{%elseif value=="AG"%}Antigua-et-Barbuda
+	{%elseif value=="AN"%}Antilles néerlandaises
+	{%elseif value=="SA"%}Arabie saoudite
+	{%elseif value=="AR"%}Argentine
+	{%elseif value=="AM"%}Arménie
+	{%elseif value=="AW"%}Aruba
+	{%elseif value=="AU"%}Australie
+	{%elseif value=="AT"%}Autriche
+	{%elseif value=="AZ"%}Azerbaïdjan
+	{%elseif value=="BS"%}Bahamas
+	{%elseif value=="BH"%}Bahreïn
+	{%elseif value=="BD"%}Bangladesh
+	{%elseif value=="BB"%}Barbade
+	{%elseif value=="BY"%}Bélarus
+	{%elseif value=="BE"%}Belgique
+	{%elseif value=="BZ"%}Belize
+	{%elseif value=="BJ"%}Bénin
+	{%elseif value=="BM"%}Bermudes
+	{%elseif value=="BT"%}Bhoutan
+	{%elseif value=="BO"%}Bolivie
+	{%elseif value=="BA"%}Bosnie-Herzégovine
+	{%elseif value=="BW"%}Botswana
+	{%elseif value=="BR"%}Brésil
+	{%elseif value=="BN"%}Brunéi Darussalam
+	{%elseif value=="BG"%}Bulgarie
+	{%elseif value=="BF"%}Burkina Faso
+	{%elseif value=="BI"%}Burundi
+	{%elseif value=="KH"%}Cambodge
+	{%elseif value=="CM"%}Cameroun
+	{%elseif value=="CA"%}Canada
+	{%elseif value=="CV"%}Cap-Vert
+	{%elseif value=="EA"%}Ceuta et Melilla
+	{%elseif value=="CL"%}Chili
+	{%elseif value=="CN"%}Chine
+	{%elseif value=="CY"%}Chypre
+	{%elseif value=="CO"%}Colombie
+	{%elseif value=="KM"%}Comores
+	{%elseif value=="CG"%}Congo-Brazzaville
+	{%elseif value=="KP"%}Corée du Nord
+	{%elseif value=="KR"%}Corée du Sud
+	{%elseif value=="CR"%}Costa Rica
+	{%elseif value=="CI"%}Côte d’Ivoire
+	{%elseif value=="HR"%}Croatie
+	{%elseif value=="CU"%}Cuba
+	{%elseif value=="DK"%}Danemark
+	{%elseif value=="DG"%}Diego Garcia
+	{%elseif value=="DJ"%}Djibouti
+	{%elseif value=="DM"%}Dominique
+	{%elseif value=="EG"%}Égypte
+	{%elseif value=="SV"%}El Salvador
+	{%elseif value=="AE"%}Émirats arabes unis
+	{%elseif value=="EC"%}Équateur
+	{%elseif value=="ER"%}Érythrée
+	{%elseif value=="ES"%}Espagne
+	{%elseif value=="EE"%}Estonie
+	{%elseif value=="VA"%}État de la Cité du Vatican
+	{%elseif value=="FM"%}États fédérés de Micronésie
+	{%elseif value=="US"%}États-Unis
+	{%elseif value=="ET"%}Éthiopie
+	{%elseif value=="FJ"%}Fidji
+	{%elseif value=="FI"%}Finlande
+	{%elseif value=="GA"%}Gabon
+	{%elseif value=="GM"%}Gambie
+	{%elseif value=="GE"%}Géorgie
+	{%elseif value=="GS"%}Géorgie du Sud et les îles Sandwich du Sud
+	{%elseif value=="GH"%}Ghana
+	{%elseif value=="GI"%}Gibraltar
+	{%elseif value=="GR"%}Grèce
+	{%elseif value=="GD"%}Grenade
+	{%elseif value=="GL"%}Groenland
+	{%elseif value=="GP"%}Guadeloupe
+	{%elseif value=="GU"%}Guam
+	{%elseif value=="GT"%}Guatemala
+	{%elseif value=="GG"%}Guernesey
+	{%elseif value=="GN"%}Guinée
+	{%elseif value=="GQ"%}Guinée équatoriale
+	{%elseif value=="GW"%}Guinée-Bissau
+	{%elseif value=="GY"%}Guyana
+	{%elseif value=="GF"%}Guyane française
+	{%elseif value=="HT"%}Haïti
+	{%elseif value=="HN"%}Honduras
+	{%elseif value=="HU"%}Hongrie
+	{%elseif value=="BV"%}Île Bouvet
+	{%elseif value=="CX"%}Île Christmas
+	{%elseif value=="CP"%}Île Clipperton
+	{%elseif value=="AC"%}Île de l&#039;Ascension
+	{%elseif value=="IM"%}Île de Man
+	{%elseif value=="NF"%}Île Norfolk
+	{%elseif value=="AX"%}Îles Åland
+	{%elseif value=="KY"%}Îles Caïmans
+	{%elseif value=="IC"%}Îles Canaries
+	{%elseif value=="CC"%}Îles Cocos - Keeling
+	{%elseif value=="CK"%}Îles Cook
+	{%elseif value=="FO"%}Îles Féroé
+	{%elseif value=="HM"%}Îles Heard et MacDonald
+	{%elseif value=="FK"%}Îles Malouines
+	{%elseif value=="MP"%}Îles Mariannes du Nord
+	{%elseif value=="MH"%}Îles Marshall
+	{%elseif value=="UM"%}Îles Mineures Éloignées des États-Unis
+	{%elseif value=="SB"%}Îles Salomon
+	{%elseif value=="TC"%}Îles Turks et Caïques
+	{%elseif value=="VG"%}Îles Vierges britanniques
+	{%elseif value=="VI"%}Îles Vierges des États-Unis
+	{%elseif value=="IN"%}Inde
+	{%elseif value=="ID"%}Indonésie
+	{%elseif value=="IQ"%}Irak
+	{%elseif value=="IR"%}Iran
+	{%elseif value=="IE"%}Irlande
+	{%elseif value=="IS"%}Islande
+	{%elseif value=="IL"%}Israël
+	{%elseif value=="IT"%}Italie
+	{%elseif value=="JM"%}Jamaïque
+	{%elseif value=="JP"%}Japon
+	{%elseif value=="JE"%}Jersey
+	{%elseif value=="JO"%}Jordanie
+	{%elseif value=="KZ"%}Kazakhstan
+	{%elseif value=="KE"%}Kenya
+	{%elseif value=="KG"%}Kirghizistan
+	{%elseif value=="KI"%}Kiribati
+	{%elseif value=="KW"%}Koweït
+	{%elseif value=="LA"%}Laos
+	{%elseif value=="LS"%}Lesotho
+	{%elseif value=="LV"%}Lettonie
+	{%elseif value=="LB"%}Liban
+	{%elseif value=="LR"%}Libéria
+	{%elseif value=="LY"%}Libye
+	{%elseif value=="LI"%}Liechtenstein
+	{%elseif value=="LT"%}Lituanie
+	{%elseif value=="LU"%}Luxembourg
+	{%elseif value=="MK"%}Macédoine
+	{%elseif value=="MG"%}Madagascar
+	{%elseif value=="MY"%}Malaisie
+	{%elseif value=="MW"%}Malawi
+	{%elseif value=="MV"%}Maldives
+	{%elseif value=="ML"%}Mali
+	{%elseif value=="MT"%}Malte
+	{%elseif value=="MA"%}Maroc
+	{%elseif value=="MQ"%}Martinique
+	{%elseif value=="MU"%}Maurice
+	{%elseif value=="MR"%}Mauritanie
+	{%elseif value=="YT"%}Mayotte
+	{%elseif value=="MX"%}Mexique
+	{%elseif value=="MD"%}Moldavie
+	{%elseif value=="MC"%}Monaco
+	{%elseif value=="MN"%}Mongolie
+	{%elseif value=="ME"%}Monténégro
+	{%elseif value=="MS"%}Montserrat
+	{%elseif value=="MZ"%}Mozambique
+	{%elseif value=="MM"%}Myanmar
+	{%elseif value=="NA"%}Namibie
+	{%elseif value=="NR"%}Nauru
+	{%elseif value=="NP"%}Népal
+	{%elseif value=="NI"%}Nicaragua
+	{%elseif value=="NE"%}Niger
+	{%elseif value=="NG"%}Nigéria
+	{%elseif value=="NU"%}Niue
+	{%elseif value=="NO"%}Norvège
+	{%elseif value=="NC"%}Nouvelle-Calédonie
+	{%elseif value=="NZ"%}Nouvelle-Zélande
+	{%elseif value=="OM"%}Oman
+	{%elseif value=="UG"%}Ouganda
+	{%elseif value=="UZ"%}Ouzbékistan
+	{%elseif value=="PK"%}Pakistan
+	{%elseif value=="PW"%}Palaos
+	{%elseif value=="PA"%}Panama
+	{%elseif value=="PG"%}Papouasie-Nouvelle-Guinée
+	{%elseif value=="PY"%}Paraguay
+	{%elseif value=="NL"%}Pays-Bas
+	{%elseif value=="PE"%}Pérou
+	{%elseif value=="PH"%}Philippines
+	{%elseif value=="PN"%}Pitcairn
+	{%elseif value=="PL"%}Pologne
+	{%elseif value=="PF"%}Polynésie française
+	{%elseif value=="PR"%}Porto Rico
+	{%elseif value=="PT"%}Portugal
+	{%elseif value=="QA"%}Qatar
+	{%elseif value=="HK"%}R.A.S. chinoise de Hong Kong
+	{%elseif value=="MO"%}R.A.S. chinoise de Macao
+	{%elseif value=="QO"%}régions éloignées de l’Océanie
+	{%elseif value=="CF"%}République centrafricaine
+	{%elseif value=="CD"%}République démocratique du Congo
+	{%elseif value=="DO"%}République dominicaine
+	{%elseif value=="CZ"%}République tchèque
+	{%elseif value=="RE"%}Réunion
+	{%elseif value=="RO"%}Roumanie
+	{%elseif value=="GB"%}Royaume-Uni
+	{%elseif value=="RU"%}Russie
+	{%elseif value=="RW"%}Rwanda
+	{%elseif value=="EH"%}Sahara occidental
+	{%elseif value=="BL"%}Saint-Barthélémy
+	{%elseif value=="KN"%}Saint-Kitts-et-Nevis
+	{%elseif value=="SM"%}Saint-Marin
+	{%elseif value=="MF"%}Saint-Martin
+	{%elseif value=="PM"%}Saint-Pierre-et-Miquelon
+	{%elseif value=="VC"%}Saint-Vincent-et-les Grenadines
+	{%elseif value=="SH"%}Sainte-Hélène
+	{%elseif value=="LC"%}Sainte-Lucie
+	{%elseif value=="WS"%}Samoa
+	{%elseif value=="AS"%}Samoa américaines
+	{%elseif value=="ST"%}Sao Tomé-et-Principe
+	{%elseif value=="SN"%}Sénégal
+	{%elseif value=="RS"%}Serbie
+	{%elseif value=="CS"%}Serbie-et-Monténégro
+	{%elseif value=="SC"%}Seychelles
+	{%elseif value=="SL"%}Sierra Leone
+	{%elseif value=="SG"%}Singapour
+	{%elseif value=="SK"%}Slovaquie
+	{%elseif value=="SI"%}Slovénie
+	{%elseif value=="SO"%}Somalie
+	{%elseif value=="SD"%}Soudan
+	{%elseif value=="LK"%}Sri Lanka
+	{%elseif value=="SE"%}Suède
+	{%elseif value=="CH"%}Suisse
+	{%elseif value=="SR"%}Suriname
+	{%elseif value=="SJ"%}Svalbard et Île Jan Mayen
+	{%elseif value=="SZ"%}Swaziland
+	{%elseif value=="SY"%}Syrie
+	{%elseif value=="TJ"%}Tadjikistan
+	{%elseif value=="TW"%}Taïwan
+	{%elseif value=="TZ"%}Tanzanie
+	{%elseif value=="TD"%}Tchad
+	{%elseif value=="TF"%}Terres australes françaises
+	{%elseif value=="IO"%}Territoire britannique de l'océan Indien
+	{%elseif value=="PS"%}Territoire palestinien
+	{%elseif value=="TH"%}Thaïlande
+	{%elseif value=="TL"%}Timor oriental
+	{%elseif value=="TG"%}Togo
+	{%elseif value=="TK"%}Tokelau
+	{%elseif value=="TO"%}Tonga
+	{%elseif value=="TT"%}Trinité-et-Tobago
+	{%elseif value=="TA"%}Tristan da Cunha
+	{%elseif value=="TN"%}Tunisie
+	{%elseif value=="TM"%}Turkménistan
+	{%elseif value=="TR"%}Turquie
+	{%elseif value=="TV"%}Tuvalu
+	{%elseif value=="UA"%}Ukraine
+	{%elseif value=="EU"%}Union européenne
+	{%elseif value=="UY"%}Uruguay
+	{%elseif value=="VU"%}Vanuatu
+	{%elseif value=="VE"%}Venezuela
+	{%elseif value=="VN"%}Viêt Nam
+	{%elseif value=="WF"%}Wallis-et-Futuna
+	{%elseif value=="YE"%}Yémen
+	{%elseif value=="ZM"%}Zambie
+	{%elseif value=="ZW"%}Zimbabwe
+	{%endif%}
+{%endmacro%}

@@ -1,8 +1,6 @@
-{% extends "layout.html.twig" %}
-{% import 'country/country.html.twig' as formMacro %}
-{% block core %}
 
-	<div class="jumbotron jumbotron-fluid mb-0 bg-light">
+
+<div class="jumbotron jumbotron-fluid mb-0 bg-light">
 		<div class="container" id="recap">
 			<div class="row">
 				{% for message in app.flashes('notice') %}
@@ -57,42 +55,3 @@
 										</div>
 									</div>
 								</div>
-
-							{% endfor %}
-							</div>
-
-							<div class="col-12 pt-3">
-								<h5 class="col-md-4">Nombre de place : <span>{{command.numberOfPlaces}}</span></h5>
-								<h5 class="col-md-4">prix total : <span id="price">{{command.price}}€</span></h5>
-		
-							</div>
-
-							<div class="col-12 mt-3" id="stripeForm">
-
-								<form action="{{path('payment',{'command_id': command.token})}}" method="POST">
-								  <script
-								    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-								    data-key="pk_test_oiHX9dPsgTdfoOtwAX92WQcI"
-								    data-amount="{{command.price}}"
-								    data-name="Musée du Louvre"
-								    data-description="paiement de votre commande"
-								    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-								    data-locale="auto"
-								    data-currency="eur">
-								  </script>
-								</form>
-								
-							</div>
-
-							<div class="col-12">
-								<small class="form-text text-muted">Pour payer votre commande veuillez cliquer sur le bouton ci dessus. </small>
-							</div>	
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-{% endblock %}

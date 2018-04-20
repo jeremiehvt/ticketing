@@ -35,8 +35,6 @@ class TicketsController extends Abstractcontroller
 		if ($form->isSubmitted() && $form->isValid()) {
 			
 			
-			$this->addFlash('note','votre commande à été enregistré');
-			
 			$tickets = $command->getTickets();
 	
 			foreach ($tickets as $ticket) {				
@@ -52,6 +50,8 @@ class TicketsController extends Abstractcontroller
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($command);
 			$em->flush();
+
+			$this->addFlash('notice','votre commande à été enregistrée');
 			
 			return $this->redirectToRoute('recap', array('command_id'=>$command->getToken()));
 		}

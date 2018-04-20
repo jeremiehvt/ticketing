@@ -125,6 +125,9 @@
             "ref": "e65a105bf4cd5b1b79012ba029954927f05922e8"
         }
     },
+    "stripe/stripe-php": {
+        "version": "v6.6.0"
+    },
     "symfony/asset": {
         "version": "v4.0.6"
     },

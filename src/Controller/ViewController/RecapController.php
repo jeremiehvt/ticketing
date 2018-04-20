@@ -3,14 +3,14 @@
 namespace App\Controller\ViewController;
 
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Command;
 use App\Repository\CommandRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
-class RecapController extends Controller
+class RecapController extends AbstractController
 {
     /**
      * @Route("/recapitulatif-commande-{command_id}", name="recap")

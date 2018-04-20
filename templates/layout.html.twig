@@ -25,6 +25,16 @@
 		</div> 
     {% endblock %}
 
+    
+    {% for message in app.flashes('warning') %}
+	    <div class="jumbotron jumbotron-fluid mb-0 bg-light">
+			<div class="col-12 px-3 py-1" id="homepage">
+				<p class="col-12 flash-warning align-middle text-center rounded" id="message">{{ message }}</p>
+			</div>
+		</div>		
+	{% endfor %}
+	
+
     {% block core %}{% endblock %}
     
     <div id="contact" class="jumbotron jumbotron-fluid pb-0 my-0">

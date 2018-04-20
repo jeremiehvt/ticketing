@@ -12,6 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 
 
+
 class PaymentController extends AbstractController
 {
 	/**
@@ -23,6 +24,8 @@ class PaymentController extends AbstractController
 		\Stripe\Stripe::setApiKey("sk_test_waPjYO9CcyAn5z3n1g2789d8");
 
 		$token = $_POST['stripeToken'];
+
+
 
 		try {
 				$charge = \Stripe\Charge::create([
@@ -58,14 +61,29 @@ class PaymentController extends AbstractController
 				  // Something else happened, completely unrelated to Stripe
 				}
 		
+
 		//set command paid to true
+		$em = $this->getDoctrine()->getManager();
+		$command->setPaid(true);
+		$em->persist($command);
+		$em->flush();
+
 
 		//send an email to the customers with details command in a pdf
 		$message = (new \Swift_Message('Votre Commande'))
-		
+			->setFrom('jeremiehvt@gmail.com')
+			->setTo($command->getEmail())
+			->setBody(
+				$this->renderView('mail/commandMail.html.twig', array(
+					'command'=>$command
+				), 'text/html')
+			);
+
+		$mailer->send($message);
+
 
 		//redirect the user to the homepage
-		$this->addFlash('notice', 'votre commande à bien été payé un email contenant votre commande va vous être envoyé dans les prochaines minutes.');
+		$this->addFlash('warning', 'votre commande à bien été payé un email contenant votre commande va vous être envoyé dans les prochaines minutes.');
 		return $this->redirectToRoute('homepage');
 	
 	}

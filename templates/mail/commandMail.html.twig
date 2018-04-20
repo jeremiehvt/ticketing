@@ -1,13 +1,11 @@
+{% extends "layout.html.twig" %}
+{% import 'country/country.html.twig' as formMacro %}
+{% block core %}
 
-
-<div class="jumbotron jumbotron-fluid mb-0 bg-light">
+	<div class="jumbotron jumbotron-fluid mb-0 bg-light">
 		<div class="container" id="recap">
 			<div class="row">
-				{% for message in app.flashes('notice') %}
-					<div class="col-12 px-3 py-4">
-						<p class="col-12 flash-notice align-middle text-center rounded" id="message">{{ message }}</p>
-					</div>		
-				{% endfor %}
+				
 				<h3 class="col-12 mb-5">Commande Numéro : <span>{{command.token}}</span></h3>
 				<div class="jumbotron mx-3">
 
@@ -55,3 +53,22 @@
 										</div>
 									</div>
 								</div>
+
+							{% endfor %}
+							</div>
+
+							<div class="col-12 pt-3">
+								<h5 class="col-md-4">Nombre de place : <span>{{command.numberOfPlaces}}</span></h5>
+								<h5 class="col-md-4">prix total : <span id="price">{{command.price}}€</span></h5>
+		
+							</div>
+
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

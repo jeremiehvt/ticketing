@@ -169,7 +169,8 @@ class Command
     {
         $tickets = $this->getTickets();
 
-        foreach ($tickets as $ticket) {
+        
+            foreach ($tickets as $ticket) {
             
             $this->price += $ticket->getPrice();
         }
@@ -253,7 +254,7 @@ class Command
     /**
      * @Assert\Callback
      */
-    public function validate(ExecutionContextInterface $context, $payload)
+    public function validateHour(ExecutionContextInterface $context, $payload)
     {
 
         $today = new \DateTime();
@@ -265,11 +266,52 @@ class Command
                 if ($type === 'journée' && $today->format('H') >= 14) {
 
                 
-                     $context->buildViolation('vous ne pouvez commander pour une journée après 14h')
+                     $context->buildViolation('vous ne pouvez commander pour une journée après 14h aujourd\'hui')
                     ->atPath('tycketsType')
                     ->addViolation();
             }
         }
     }
+
+    /**
+     * @Assert\Callback
+     */
+    public function validateVisitDay(ExecutionContextInterface $context, $payload)
+    {
+
+        $today = new \DateTime();
+        $visit = $this->getVisitDay();
+        
+
+        if ($visit->format('l') === 'Tuesday') {
+                
+             $context->buildViolation('vous ne pouvez commander pour un jour fermeture')
+            ->atPath('visitDay')
+            ->addViolation();  
+        } elseif ($visit->format('m-d') === '1-5') {
+            $context->buildViolation('vous ne pouvez commander pour un jour ferié')
+            ->atPath('visitDay')
+            ->addViolation();  
+        } elseif ($visit->format('m-d') === '12-25') {
+            $context->buildViolation('vous ne pouvez commander pour un jour ferié')
+            ->atPath('visitDay')
+            ->addViolation();  
+        }
+    }
+
+     /**
+     * @Assert\Callback
+     */
+     public function validateNumberOfPlaces(ExecutionContextInterface $context, $payload)
+     {
+        $number =  count($this->getTickets());
+        if ($number === 0) {
+            $context->buildViolation('vous ne pouvez pas passer une commande vide')
+            ->atPath('visitDay')
+            ->addViolation();  
+        }
+        
+     }
+   
 
 }

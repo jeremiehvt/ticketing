@@ -295,7 +295,7 @@ class Command
         } elseif ($visit->format('m-d') === '12-25') {
             $context->buildViolation('vous ne pouvez commander pour un jour ferié')
             ->atPath('visitDay')
-            ->addViolation();  
+            ->addViolation();
         }
     }
 

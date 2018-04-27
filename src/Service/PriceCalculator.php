@@ -86,6 +86,7 @@ class PriceCalculator
 			return $this->price;
 		}
 
+		
 	}
 
 }

@@ -162,5 +162,32 @@ class PriceCalculatorTest extends WebTestCase
 
         self::tearDown();
 	}
+
+	public function testSetPriceIsFree()
+	{
+		self::setUp();
+
+		$command = new Command();
+		$command->setEmail('me@me.com');
+		$command->setTycketsType('journée');
+
+		$ticket = new Ticket();
+		$ticket->setName('havart');
+		$ticket->setFirstName('jérémie');
+		$ticket->setBirthday(new \DateTime('2016-3-26'));
+		$ticket->setReduction(false);
+		$ticket->setCountry('france');
+
+		$command->addTicket($ticket);
+
+
+        $priceCalculator = new PriceCalculator($this->em);
+        $result = $priceCalculator->setPrice($ticket);
+
+        $this->assertNotNull($result);
+        $this->assertSame(0, $result);
+
+        self::tearDown();
+	}
 	
 }

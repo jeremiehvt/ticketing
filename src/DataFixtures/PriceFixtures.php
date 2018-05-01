@@ -12,10 +12,10 @@ class PriceFixtures extends Fixture
     {
         	
     	$price = new Price();
-        $price->setNormal(20);
-        $price->setChildren(6);
-        $price->setSenior(15);
-        $price->setReduct(9);
+        $price->setNormal(16);
+        $price->setChildren(8);
+        $price->setSenior(12);
+        $price->setReduct(10);
         $price->setFree(0);
 
 

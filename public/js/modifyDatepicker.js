@@ -2,7 +2,7 @@ $(function() {
 
 
 
-	 $( "#command_visitDay" ).datepicker({
+	 $( ":input#command_visitDay" ).datepicker({
   beforeShowDay: $.datepicker.noWeekends
 });
 

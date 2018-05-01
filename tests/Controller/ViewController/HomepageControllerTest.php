@@ -25,7 +25,8 @@ class HomepageControllerTest extends WebTestCase
         yield ['/billetterie'];
         yield ['/#contact'];
         yield ['/billetterie#contact'];
-        
+        yield ['/#legal'];
+        yield ['/billetterie#legal'];    
     }
 
     public function testLink()
@@ -38,6 +39,18 @@ class HomepageControllerTest extends WebTestCase
 
         $info = $crawler->filter('h2')->text();
         $this->assertSame("formulaire ", $info);
+    }
+
+    public function testShowLegalInfosLink()
+    {
+        $client = self::createClient();
+        $crawler = $client->request('GET', '/');
+
+        $ticketLink = $crawler->selectLink('Mentions légales')->link();
+        $crawler = $client->click($ticketLink);
+
+        $info = $crawler->filter('#legal')->text();
+        $this->assertSame("Voici les mentions légales", $info);
     }
 
 }

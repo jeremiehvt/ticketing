@@ -32,8 +32,7 @@ class TicketType extends AbstractType
             ))
             ->add('reduction', CheckboxType::class,array(
                 'label' => 'tarif réduit', 
-                'required' => false
-
+                'required' => false,
                 ))
             ->add('country', CountryType::class, array(
                 'placeholder' => 'selectionner votre nationalité',

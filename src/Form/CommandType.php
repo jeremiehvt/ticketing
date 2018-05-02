@@ -28,6 +28,7 @@ class CommandType extends AbstractType
             ->add('visitDay', DateType::class, array(
                 'widget' => 'single_text',
                 'attr' => ['class' => 'js-datepicker'],
+                
             ))
             ->add('tycketsType', ChoiceType::class, array(
                 'placeholder' => 'type de ticket',

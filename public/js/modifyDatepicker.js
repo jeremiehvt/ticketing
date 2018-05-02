@@ -1,4 +1,4 @@
-$(function() {
+
 /*
 	var disableddates = ["05-01", "11-01", "12-25"];
  
@@ -28,4 +28,8 @@ $(function() {
 
 	$( "#command_visitDay" ).attr('placeholder', 'mois/jour/année');
 */
-});
+
+
+
+
+

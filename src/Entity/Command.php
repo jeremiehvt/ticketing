@@ -49,7 +49,6 @@ class Command
      * @Assert\GreaterThanOrEqual("today", message="impossible de commander pour un jour passé")
      * @AcmeAssert\DateCounter
      * @Assert\DateTime()
-     * @Assert\NotNull()
      */
     private $visitDay;
 
@@ -260,6 +259,8 @@ class Command
         $today = new \DateTime();
         $visit = $this->getVisitDay();
         $type = $this->getTycketsType();
+        var_dump($visit);
+        die();
 
         if ($visit->format('Y-m-d') === $today->format('Y-m-d')) {
             
@@ -281,6 +282,7 @@ class Command
 
         $today = new \DateTime();
         $visit = $this->getVisitDay();
+        
         
 
         if ($visit->format('l') === 'Tuesday') {

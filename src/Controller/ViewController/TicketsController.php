@@ -46,6 +46,8 @@ class TicketsController extends Abstractcontroller
 				$ticket->setPrice($price);
 									
 			}
+
+
 						
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($command);

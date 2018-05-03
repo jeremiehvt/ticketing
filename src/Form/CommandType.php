@@ -31,7 +31,7 @@ class CommandType extends AbstractType
                 
             ))
             ->add('tycketsType', ChoiceType::class, array(
-                'placeholder' => 'type de ticket',
+                'placeholder' => 'type de billet',
                 'choices' => array(
                     'journée' => 'journée',
                     'demi-journée' => 'demi-journée',

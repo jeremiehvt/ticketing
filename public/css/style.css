@@ -47,6 +47,11 @@ body {
 	font-weight: bold;
 }
 
+#recap button.stripe-button-el span {
+	color: white;
+}
+
+
 #recap .btn{
 
 	color: #efefef;

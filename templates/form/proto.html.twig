@@ -2,7 +2,7 @@
 
 		<div class="form-group row col-12">
 			{{form_label(form.name, 'votre nom', {'label_attr': {'class':'col-3 col-form-label','id':'name','for': 'name'}})}}
-			<div class="col-6">
+			<div class="col-7">
 				{{form_widget(form.name, {'attr': {'class': 'form-control'}})}}
 			</div>
 			{{form_errors(form.name)}}
@@ -10,7 +10,7 @@
 
 		<div class="form-group row col-12">
 			{{form_label(form.firstName, 'votre prénom', {'label_attr': {'class':'col-3 col-form-label','id':'firstName','for': 'firstName'}})}}
-			<div class="col-6">
+			<div class="col-7">
 				{{form_widget(form.firstName, {'attr': {'class': 'form-control'}})}}
 			</div>
 			{{form_errors(form.firstName)}}
@@ -18,9 +18,11 @@
 
 		<div class="form-group row col-12">
 			{{form_label(form.birthday, 'votre date de naissance', {'label_attr': {'class':'col-3 col-form-label','id':'birthday','for': 'birthday'}})}}
-			<div class="col-6">
-				{{form_widget(form.birthday, {'attr': {'class': 'form-control'}})}}
-			</div>
+			
+				{{form_widget(form.birthday.year, {'attr': {'class': 'form-control col-2 ml-3 mr-2'}})}}
+				{{form_widget(form.birthday.month, {'attr': {'class': 'form-control col-2 mr-2'}})}}
+				{{form_widget(form.birthday.day, {'attr': {'class': 'form-control col-1 mr-2'}})}}
+			
 			{{form_errors(form.birthday)}}
 		</div>
 
@@ -34,7 +36,7 @@
 
 		<div class="form-group row col-12">
 			
-			<div class="col-9">
+			<div class="col-10">
 				{{form_widget(form.country, {'attr': {'class': 'form-control'}})}}
 			</div>
 			{{form_errors(form.country)}}

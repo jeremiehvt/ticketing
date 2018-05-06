@@ -113,7 +113,3 @@ div#command_tickets_0_birthday {
     background-color: transparent;
     border: none;
 }
-
-div#command_tickets_0_birthday > select {
-    margin-right: 19px;
-}

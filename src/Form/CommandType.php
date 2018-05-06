@@ -27,6 +27,7 @@ class CommandType extends AbstractType
             ->add('email', EmailType::class)
             ->add('visitDay', DateType::class, array(
                 'widget' => 'single_text',
+                'html5' => false,
                 'attr' => ['class' => 'js-datepicker'],
                 
             ))

@@ -107,4 +107,16 @@ body {
 
 	background-color: #990000;
 	color: white;
+<<<<<<< HEAD
+=======
+}
+
+div#command_tickets_0_birthday {
+    background-color: transparent;
+    border: none;
+}
+
+div#command_tickets_0_birthday > select {
+    margin-right: 19px;
+>>>>>>> features
 }

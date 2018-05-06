@@ -49,7 +49,6 @@ class Command
      * @Assert\GreaterThanOrEqual("today", message="impossible de commander pour un jour passé")
      * @AcmeAssert\DateCounter
      * @Assert\DateTime()
-     * @Assert\NotNull()
      */
     private $visitDay;
 
@@ -108,6 +107,7 @@ class Command
 
     public function setVisitDay(\DateTimeInterface $visitDay): self
     {
+
         $this->visitDay = $visitDay;
 
         return $this;
@@ -281,6 +281,7 @@ class Command
 
         $today = new \DateTime();
         $visit = $this->getVisitDay();
+        
         
 
         if ($visit->format('l') === 'Tuesday') {

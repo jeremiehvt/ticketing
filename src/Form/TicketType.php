@@ -26,8 +26,7 @@ class TicketType extends AbstractType
             ->add('name', TextType::class)
             ->add('firstName', TextType::class)
             ->add('birthday', BirthdayType::class , array(
-                'widget' => 'single_text',
-                'attr' => ['class' => 'js-datepicker'],
+                'widget' => 'choice',
                 
             ))
             ->add('reduction', CheckboxType::class,array(

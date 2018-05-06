@@ -107,6 +107,7 @@ class Command
 
     public function setVisitDay(\DateTimeInterface $visitDay): self
     {
+
         $this->visitDay = $visitDay;
 
         return $this;
@@ -259,8 +260,6 @@ class Command
         $today = new \DateTime();
         $visit = $this->getVisitDay();
         $type = $this->getTycketsType();
-        var_dump($visit);
-        die();
 
         if ($visit->format('Y-m-d') === $today->format('Y-m-d')) {
             

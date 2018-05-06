@@ -27,11 +27,12 @@ class CommandType extends AbstractType
             ->add('email', EmailType::class)
             ->add('visitDay', DateType::class, array(
                 'widget' => 'single_text',
+                'html5' => false,
                 'attr' => ['class' => 'js-datepicker'],
                 
             ))
             ->add('tycketsType', ChoiceType::class, array(
-                'placeholder' => 'type de ticket',
+                'placeholder' => 'type de billet',
                 'choices' => array(
                     'journée' => 'journée',
                     'demi-journée' => 'demi-journée',

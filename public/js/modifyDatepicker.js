@@ -1,4 +1,3 @@
-
 $(function(){
  	
  	var year = new Date(); 
@@ -31,9 +30,4 @@ $(function(){
 	});
 
 	$( "#command_visitDay" ).attr('placeholder', 'année-mois-jour');
-
-
-
-
-
 });

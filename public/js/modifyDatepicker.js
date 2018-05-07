@@ -1,7 +1,6 @@
 $(function(){
  	
  	var year = new Date(); 
- 	
 	
 	$.fn.datepicker.dates['fr'] = {
 		days: ["dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi", "samedi"],
@@ -15,8 +14,6 @@ $(function(){
 		weekStart: 1,
 		format: "dd/mm/yyyy"
 	};
-
-	console.log((year.getFullYear()+2)+"-12-31");
 
 	$( "#command_visitDay" ).datepicker({
 	  startDate: new Date(),

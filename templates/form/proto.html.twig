@@ -1,44 +1,45 @@
 {% macro protoRow(form) %}
 
-		<div class="form-group row col-12">
-			{{form_label(form.name)}}
-			
-			{{form_widget(form.name)}}
+	<div class="form-group row col-12">
+		{{form_label(form.name)}}
+		
+		{{form_widget(form.name)}}
 
-			{{form_errors(form.name)}}
-		</div>
+		{{form_errors(form.name)}}
+	</div>
 
-		<div class="form-group row col-12">
-			{{form_label(form.firstName)}}
-			
-				{{form_widget(form.firstName)}}
-			
-			{{form_errors(form.firstName)}}
-		</div>
+	<div class="form-group row col-12">
+		{{form_label(form.firstName)}}
+		
+			{{form_widget(form.firstName)}}
+		
+		{{form_errors(form.firstName)}}
+	</div>
 
-		<div class="form-group row col-12">
-			{{form_label(form.birthday)}}
-			
-				{{form_widget(form.birthday)}}
+	<div class="form-group row col-12">
+		{{form_label(form.birthday)}}
+		
+			{{form_widget(form.birthday.year)}}
+			{{form_widget(form.birthday.month)}}
+			{{form_widget(form.birthday.day)}}
 				
-			
-			{{form_errors(form.birthday)}}
-		</div>
+		{{form_errors(form.birthday)}}
+	</div>
 
-		<div class="form-group row col-12">
-			{{form_label(form.reduction)}}
-			
-				{{form_widget(form.reduction)}}
-			
-			{{form_errors(form.reduction)}}
-		</div>
+	<div class="form-group row col-12">
+		{{form_label(form.reduction)}}
+		
+			{{form_widget(form.reduction)}}
+		
+		{{form_errors(form.reduction)}}
+	</div>
 
-		<div class="form-group row col-12">
-			
-			
-				{{form_widget(form.country)}}
-			
-			{{form_errors(form.country)}}
-		</div>
+	<div class="form-group row col-12">
+		
+		
+			{{form_widget(form.country)}}
+		
+		{{form_errors(form.country)}}
+	</div>
 		
 {% endmacro %}

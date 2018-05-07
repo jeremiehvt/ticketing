@@ -42,6 +42,7 @@
 						{{form_label(form.tycketsType, 'type de ticket', {'label_attr': {'class':'col-3','id':'type','for': 'type'}}) }}
 							<div class="col-6">
 								{{form_widget(form.tycketsType, {'attr' : {'class': 'form-control'}})}}
+								<small class="form-text text-muted">Vous ne pouvez plus commander de billet journée après 14h. </small>
 							</div>
 						{{form_errors(form.tycketsType)}}
 					</div>
@@ -55,9 +56,7 @@
 					<div class="col-12 pt-3">
 
 						{{ form_widget(form.commander, {'attr': {'class': 'btn btn-primary'}}) }}
-
-
-
+						
 					</div>
 
 				{{ form_end(form) }}

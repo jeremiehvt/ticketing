@@ -301,6 +301,26 @@ class Command
             $context->buildViolation('vous ne pouvez commander pour un jour ferié')
             ->atPath('visitDay')
             ->addViolation();
+        } elseif ($visit->format('Y-m-d') === $today->format('Y-m-d')) {
+            
+            if ($visit->format('l') === 'Monday' || $visit->format('l') === 'saturday' || $visit->format('l') === 'sunday') {
+
+                if ($today->format('H') >= 18) {
+
+                    $context->buildViolation('vous ne pouvez commander après l\'heure de fermeture')
+                    ->atPath('visitDay')
+                    ->addViolation();
+                }    
+            } elseif ($visit->format('l') === 'wednesday' || $visit->format('l') === 'friday') {
+
+                if ($today->format('H') >= 21 && $today->format('H') >= 45 ) {
+
+                    $context->buildViolation('vous ne pouvez commander après l\'heure de fermeture')
+                    ->atPath('visitDay')
+                    ->addViolation();
+                }    
+            }
+            
         }
     }
 

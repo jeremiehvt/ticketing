@@ -30,7 +30,7 @@ class TicketType extends AbstractType
                         'id' => 'name',
                         'for' =>'name'),
                 'attr' => array(
-                    'class' => 'form-control col-6'),
+                    'class' => 'form-control col-7'),
                 
             ))
             ->add('firstName', TextType::class, array(
@@ -40,7 +40,7 @@ class TicketType extends AbstractType
                         'id' => 'firstName',
                         'for' =>'firstName'),
                 'attr' => array(
-                    'class' => 'form-control col-6'),
+                    'class' => 'form-control col-7'),
             ))
             ->add('birthday', BirthdayType::class , array(
                 'widget' => 'choice',
@@ -63,7 +63,7 @@ class TicketType extends AbstractType
             ->add('country', CountryType::class, array(
                 'placeholder' => 'selectionner votre nationalité',
                 'label' => false,
-                'attr' => array('class' => 'form-control col-9')
+                'attr' => array('class' => 'form-control col-10')
                 
             ))
         ;

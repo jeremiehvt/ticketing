@@ -19,7 +19,9 @@
 	<div class="form-group row col-12">
 		{{form_label(form.birthday)}}
 		
-			{{form_widget(form.birthday)}}
+			{{form_widget(form.birthday.year, {'attr': {'class': 'form-control col-2 mr-2'}})}}
+			{{form_widget(form.birthday.month, {'attr': {'class': 'form-control col-2 mr-2'}})}}
+			{{form_widget(form.birthday.day, {'attr': {'class': 'form-control col-2 mr-2'}})}}
 				
 		{{form_errors(form.birthday)}}
 	</div>

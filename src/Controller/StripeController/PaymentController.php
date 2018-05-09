@@ -42,6 +42,8 @@ class PaymentController extends AbstractController
 			$this->addFlash('warning', 'votre commande à bien été payé un email contenant votre commande va vous être envoyé dans les prochaines minutes.');
 			return $this->redirectToRoute('homepage');
 		} else {
+			//redirect the user to the homepage
+			$this->addFlash('warning', 'Vous avez déjà payé votre commande');
 			return $this->redirectToRoute('homepage');
 		}
 	}

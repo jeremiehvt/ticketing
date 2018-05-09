@@ -1,74 +1,174 @@
-{% extends "layout.html.twig" %}
+
 {% import 'country/country.html.twig' as formMacro %}
-{% block core %}
 
-	<div class="jumbotron jumbotron-fluid mb-0 bg-light">
-		<div class="container" id="recap">
-			<div class="row">
-				
-				<h3 class="col-12 mb-5">Commande Numéro : <span>{{command.token}}</span></h3>
-				<div class="jumbotron mx-3">
+<!DOCTYPE html>
+<html>
+<head>
 
-					<div class="container">
-						<div class="row">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-							<div class="col-6 border-right">
-								<h5 class="col-12">Vos détails personnel</h5>
-								<ul class="col-12 list-unstyled">
-									<li>votre email : <span>{{command.email}}</span></li>
-									<li>date de votre commande : <span>{{command.commandDate|date("d/m/Y")}} passée à {{command.commandDate|date("H")}}h</span></li>
-								</ul>
-							</div>
+  <style type="text/css">
+    
 
-							<div class="col-6">
-								<h5 class="col-12">Détail concernant la visite</h5>
-								<ul class="col-12 list-unstyled">
-									<li>votre jour de visite : <span>{{command.visitDay|date("d/m/Y")}}</span></li>
-									<li>type de visite : <span>{{command.tycketsType}}</span></li>
-								</ul>
-							</div>
+    #contact .btn, #contact #datacontact1 a {
 
-							<div class="col-12 mt-3">
-							{% for ticket in command.tickets %}
+      color: #efefef;
+      border-style: none;
 
-								<div class="jumbotron bg-light">
-									<div class="container">
-										<div class="row">
-											<h5 class="col-12 border-bottom pb-3 mb-3">Votre Commande</h5>
-											<div class="col-12 border-bottom">
-												<ul class="col-12 list-unstyled">
-													<li>Nom : <span>{{ticket.name}}</span></li>
-													<li>Prénom : <span>{{ticket.firstname}}</span></li>
-													<li>Date de Naissance : <span>{{ticket.birthday|date("d/m/Y")}}</span></li>
-													<li>Réduction : <span>
-														{% if ticket.reduction is same as(false) %}
-															non{% else %}
-															oui{% endif %}
-														</span></li>
-													<li>Pays : <span>{{ formMacro.country(ticket.country) }}</span></li>
-													<li>Prix du billet : <span>{{ticket.price}}€</span></li>
-												</ul>
-												
-											</div>
-										</div>
-									</div>
-								</div>
+      background-color: #990000;
+    }
 
-							{% endfor %}
-							</div>
+    #contact #datacontact1 span {
 
-							<div class="col-12 pt-3">
-								<h5 class="col-md-4">Nombre de place : <span>{{command.numberOfPlaces}}</span></h5>
-								<h5 class="col-md-4">prix total : <span id="price">{{command.price}}€</span></h5>
-		
-							</div>
+      color: #990000;
+      font-weight: bold;
+    }
 
-							
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    #recap span {
+      color: #990000;
+      font-weight: bold;
+    }
 
-{% endblock %}
+  </style>
+            
+
+</head>
+<body>
+
+  <div class="jumbotron jumbotron-fluid mb-0 bg-light">
+    <div class="container" id="recap">
+      <div class="row">
+
+        
+       
+        <div class="jumbotron mx-3">
+
+          <div class="container">
+            <div class="row">
+
+              <div class="col-12 mb-3">
+                <a href="http://www.billetterielouvre.malestroit.ovh/public/">
+                  <img alt="logodulouvre" src="{{ logo }}">
+                </a>
+              </div>
+
+               <h3 class="col-12 mb-5">Commande Numéro : <span>{{command.token}}</span></h3>
+
+              <div class="col-6 border-right">
+                <h5 class="col-12">Vos détails personnel</h5>
+                <ul class="col-12 list-unstyled">
+                  <li>votre email : <span>{{command.email}}</span></li>
+                  <li>date de votre commande : <span>{{command.commandDate|date("d/m/Y")}} passée à {{command.commandDate|date("H")}}h</span></li>
+                </ul>
+              </div>
+
+              <div class="col-6">
+                <h5 class="col-12">Détail concernant la visite</h5>
+                <ul class="col-12 list-unstyled">
+                  <li>votre jour de visite : <span>{{command.visitDay|date("d/m/Y")}}</span></li>
+                  <li>type de visite : <span>{{command.tycketsType}}</span></li>
+                </ul>
+              </div>
+
+              <div class="col-12 mt-3">
+              {% for ticket in command.tickets %}
+
+                <div class="jumbotron bg-light">
+                  <div class="container">
+                    <div class="row">
+                      <h5 class="col-12 border-bottom pb-3 mb-3">Votre Commande</h5>
+                      <div class="col-12 border-bottom">
+                        <ul class="col-12 list-unstyled">
+                          <li>Nom : <span>{{ticket.name}}</span></li>
+                          <li>Prénom : <span>{{ticket.firstname}}</span></li>
+                          <li>Date de Naissance : <span>{{ticket.birthday|date("d/m/Y")}}</span></li>
+                          <li>Réduction : <span>
+                            {% if ticket.reduction is same as(false) %}
+                              non{% else %}
+                              oui{% endif %}
+                            </span></li>
+                          <li>Pays : <span>{{ formMacro.country(ticket.country) }}</span></li>
+                          <li>Prix du billet : <span>{{ticket.price}}€</span></li>
+                        </ul>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              {% endfor %}
+              </div>
+
+              <div class="col-12 pt-3">
+                <h5 class="col-md-4">Nombre de place : <span>{{command.numberOfPlaces}}</span></h5>
+                <h5 class="col-md-4">prix total : <span id="price">{{command.price}}€</span></h5>
+    
+              </div>
+
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div id="contact" class="jumbotron">
+  <div class="container">
+    <h2 class="col-12">Infos pratiques</h2>
+
+    <div class="row">
+
+      <div class="col-6 border-right" id="datacontact">
+        <h5 class="col-md-12">Horaires d'ouverture :</h5>
+        <ul class="col-md-12 list-unstyled">
+          <li>Lundi : 9 h - 18 h</li>
+          <li>Mardi : Fermé</li>
+          <li>Mercredi : 9 h - 21h45</li>
+          <li>Jeudi : 9 h - 18 h</li>
+          <li>Vendredi : 9 h - 21h45</li>
+          <li>Samedi : 9 h - 18 h</li>
+          <li>Dimanche : 9 h - 18 h</li>
+        </ul>
+
+        <p class="col-md-12 pb-4 border-bottom"><span>L'évacuation des salles débute à 17 h 30 ou 21 h 30 les jours de nocturne.</span></p>
+
+
+        <h5 class="col-md-12 pt-2">Fermé le :</h5>
+        <ul class="col-md-12 list-unstyled mb-4">
+          <li>Lundi 1er janvier</li>
+          <li>Mardi 1er mai</li>
+          <li>Mardi 8 mai</li>
+          <li>Mardi 25 décembre</li>
+        </ul>
+      </div>
+
+
+      <div class="col-6" id="datacontact1">
+        <h5 class="col-md-12">Adresse :</h5>
+        <ul class="col-md-12 list-unstyled">
+          <li><span>Musée du Louvre</span>, rue de rivoli 75000 Paris</li>
+        </ul>
+        <h5 class="col-md-12">Infos :</h5>
+        <ul class="col-md-12 list-unstyled">
+          <li>Pour toute demande particulière veuillez nous contacter par <a class="badge badge-primary badge-pill" href="mailto:billetterielouvre@malestroit.ovh">mail</a>, par téléphone au 01-89-89-89-89 ou sur  <a class="badge badge-primary badge-pill" href="http://www.billetterielouvre.malestroit.ovh/public/#contact">le site du louvre.</a></li>
+        </ul>
+
+
+        <ul class="col-md-12 list-unstyled">
+          <li>
+            <small class="form-text text-muted">enfant à partir de 4 ans jusqu'à 12 ans, normal de 12 ans à 59 ans et senior à partir de 60 ans, gratuit pour les enfants de moins de 4 ans, tarif réduit pour les invalides, étudiants et les bénéficiaires d'un régime particulier(un justificatif et une pièce d'identité vous seront demandés à l'accueil du musée). </small>
+          </li> 
+        </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>
+
+  

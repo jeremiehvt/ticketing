@@ -22,20 +22,12 @@ class Mailer
 	{
 		//send an email to the customers with details command in a pdf
 		$message = (new \Swift_Message('Votre Commande'))
-			->setFrom('billetterielouvre@malestroit.ovh')
+			->setFrom('jeremiehvt@gmail.com')
 			->setTo($command->getEmail())
-			->setCharset('utf-8')
-			->setContentType('text/html')
-			;
-
-			$logo =  $message->embed(\Swift_Image::fromPath('../Public/img/logo.png'));
-			$message->setBody(
-
-				$this->templating->render('mail/commandmail.html.twig', array(
-					'command'=>$command,
-					'logo'=>$logo,
-				), 
-				'text/html')
+			->setBody(
+				$this->templating->render('mail/commandMail.html.twig', array(
+					'command'=>$command
+				), 'text/html')
 			);
 
 		$this->mail->send($message);

@@ -67,40 +67,44 @@
 		
 							</div>
 
-							{% if command.price == 0 %}
+							{% if command.paid is same as(false) %}
 
-								<div class="col-12 mt-3" id="stripeForm">
-									<a href="{{path('payment',{'command_id': command.token})}}" class="btn btn-succes">valider et payer</a>								
-								</div>
+								{% if command.price == 0 %}
+
+									<div class="col-12 mt-3" id="stripeForm">
+										<a href="{{path('payment',{'command_id': command.token})}}" class="btn btn-succes">valider et payer</a>								
+									</div>
+
+								{% else %}
+
+									<div class="col-12 mt-3" id="stripeForm">
+
+										<form action="{{path('payment',{'command_id': command.token})}}" method="POST">
+										  <script
+										    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+										    data-key="pk_test_oiHX9dPsgTdfoOtwAX92WQcI"
+										    data-amount="{{command.price}}00"
+										    data-name="Musée du Louvre"
+										    data-description="paiement de votre commande"
+										    data-label="valider et payer"
+										    data-image="../public/img/logo.png"
+										    data-allow-remember-me="false"
+										    data-locale="auto"
+										    data-currency="eur">
+										  </script>
+										</form>
+										
+									</div>
+									<div class="col-12">
+										<small class="form-text text-muted">Pour payer votre commande veuillez cliquer sur le bouton ci dessus. </small>
+									</div>
+
+								{% endif %}
 
 							{% else %}
-
-								<div class="col-12 mt-3" id="stripeForm">
-
-									<form action="{{path('payment',{'command_id': command.token})}}" method="POST">
-									  <script
-									    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-									    data-key="pk_test_oiHX9dPsgTdfoOtwAX92WQcI"
-									    data-amount="{{command.price}}00"
-									    data-name="Musée du Louvre"
-									    data-description="paiement de votre commande"
-									    data-label="valider et payer"
-									    data-image="../../public/img/logo.png"
-									    data-allow-remember-me="false"
-									    data-locale="auto"
-									    data-currency="eur">
-									  </script>
-									</form>
-									
-								</div>
-
-							{% endif %}
-
-							
-
-							<div class="col-12">
-								<small class="form-text text-muted">Pour payer votre commande veuillez cliquer sur le bouton ci dessus. </small>
-							</div>	
+								<p class="col-12 mt-3"> votre commande à déjà été payé.</p>
+							{% endif %}	
+	
 
 						</div>
 					</div>

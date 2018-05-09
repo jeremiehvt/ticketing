@@ -23,24 +23,27 @@ class PaymentController extends AbstractController
 	*/
 	public function payment(Request $request, Command $command, StripeService $stripe, Mailer $mailer)
 	{
-		
-		if ($command->getPrice() === 0) {
-			$mailer->sendMail($command);
+		if ($command->getPaid() === false) {
+
+			if ($command->getPrice() === 0) {
+				$mailer->sendMail($command);
+			} else {
+				$stripe->sendPayment($command);
+				$mailer->sendMail($command);
+			}
+
+			//set command paid to true
+			$em = $this->getDoctrine()->getManager();
+			$command->setPaid(true);
+			$em->persist($command);
+			$em->flush();
+
+			//redirect the user to the homepage
+			$this->addFlash('warning', 'votre commande à bien été payé un email contenant votre commande va vous être envoyé dans les prochaines minutes.');
+			return $this->redirectToRoute('homepage');
 		} else {
-			$stripe->sendPayment($command);
-			$mailer->sendMail($command);
+			return $this->redirectToRoute('homepage');
 		}
-
-		//set command paid to true
-		$em = $this->getDoctrine()->getManager();
-		$command->setPaid(true);
-		$em->persist($command);
-		$em->flush();
-
-		//redirect the user to the homepage
-		$this->addFlash('warning', 'votre commande à bien été payé un email contenant votre commande va vous être envoyé dans les prochaines minutes.');
-		return $this->redirectToRoute('homepage');
-	
 	}
 	
 }

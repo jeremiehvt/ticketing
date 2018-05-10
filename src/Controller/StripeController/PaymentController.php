@@ -27,6 +27,7 @@ class PaymentController extends AbstractController
 
 			if ($command->getPrice() === 0) {
 				$mailer->sendMail($command);
+
 			} else {
 				$stripe->sendPayment($command);
 				$mailer->sendMail($command);

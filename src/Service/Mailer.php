@@ -27,8 +27,9 @@ class Mailer
 			->setCharset('utf-8')
 			->setContentType('text/html')
 			;
-
-			$logo =  $message->embed(\Swift_Image::fromPath('../Public/img/logo.png'));
+			$message->attach(
+  			\Swift_Attachment::fromPath('../public/img/logo.png')->setFilename('cool.jpg'));
+			$logo =  $message->embed(\Swift_Image::fromPath('../public/img/logo.png'));
 			$message->setBody(
 
 				$this->templating->render('mail/commandmail.html.twig', array(

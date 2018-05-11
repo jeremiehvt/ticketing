@@ -21,9 +21,9 @@ $(function(){
 	  language: 'fr',
 	  format: 'yyyy-mm-dd',
 	  daysOfWeekDisabled: '2',
-	  datesDisabled: [ ""+ year.getFullYear()+"-05-01", ""+ year.getFullYear()+"-11-01", ""+ year.getFullYear()+"-12-25",
-	  ""+ (year.getFullYear()+1)+"-05-01", ""+ (year.getFullYear()+1)+"-11-01", ""+ (year.getFullYear()+1)+"-12-25",
-	  ""+ (year.getFullYear()+2)+"-05-01", ""+ (year.getFullYear()+2)+"-11-01", ""+ (year.getFullYear()+2)+"-12-25"]
+	  datesDisabled: [ ""+ year.getFullYear()+"-01-01",""+ year.getFullYear()+"-05-01", ""+ year.getFullYear()+"-11-01", ""+ year.getFullYear()+"-12-25",
+	  ""+ (year.getFullYear()+1)+"-01-01",""+ (year.getFullYear()+1)+"-05-01", ""+ (year.getFullYear()+1)+"-11-01", ""+ (year.getFullYear()+1)+"-12-25",
+	  ""+ (year.getFullYear()+2)+"-01-01",""+ (year.getFullYear()+2)+"-05-01", ""+ (year.getFullYear()+2)+"-11-01", ""+ (year.getFullYear()+2)+"-12-25"]
 	});
 
 	$( "#command_visitDay" ).attr('placeholder', 'année-mois-jour');

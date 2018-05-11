@@ -20,22 +20,29 @@ class Mailer
 
 	public function sendMail(Command $command)
 	{
+
 		//send an email to the customers with details command in a pdf
 		$message = (new \Swift_Message('Votre Commande'))
 			->setFrom('billetterielouvre@malestroit.ovh')
 			->setTo($command->getEmail())
 			->setCharset('utf-8')
 			->setContentType('text/html')
-			;
-			$logo =  $message->embed(\Swift_Image::fromPath('../public/img/logo.png'));
-			$message->setBody(
-
+			->setBody(
 				$this->templating->render('mail/commandmail.html.twig', array(
-					'command'=>$command,
-					'logo'=>$logo,
+					'command'=>$command,	
 				), 
 				'text/html')
-			);
+			)
+			 ->addPart(
+            $this->templating->render(
+                'mail/commandmail.text.twig',
+                array('command'=>$command)
+	            ),
+	            'text/plain'
+	        )
+			;
+			
+			
 
 		$this->mail->send($message);
 

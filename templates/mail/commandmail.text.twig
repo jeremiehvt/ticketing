@@ -1,0 +1,65 @@
+
+{% import 'country/country.html.twig' as formMacro %}
+Commande Numéro : {{command.token}}
+
+Vos détails personnel :
+votre email : {{command.email}}
+date de votre commande : {{command.commandDate|date("d/m/Y")}} passée à {{command.commandDate|date("H")}}h
+
+Détail concernant la visite :
+votre jour de visite : {{command.visitDay|date("d/m/Y")}}
+type de visite : {{command.tycketsType}}
+
+
+
+{% for ticket in command.tickets %}
+
+Votre Commande :
+
+Nom : {{ticket.name}}
+Prénom : {{ticket.firstname}}
+Date de Naissance : {{ticket.birthday|date("d/m/Y")}}
+Réduction : 
+{% if ticket.reduction is same as(false) %}
+non{% else %}
+oui{% endif %}
+Pays : {{ formMacro.country(ticket.country) }}
+Prix du billet : {{ticket.price}}€
+
+
+{% endfor %}
+
+Nombre de place : {{command.numberOfPlaces}}
+prix total : {{command.price}}€
+
+Infos pratiques :
+
+Horaires d'ouverture :
+Lundi : 9 h - 18 h
+Mardi : Fermé
+Mercredi : 9 h - 21h45
+Jeudi : 9 h - 18 h
+Vendredi : 9 h - 21h45
+Samedi : 9 h - 18 h
+Dimanche : 9 h - 18 h
+
+
+L'évacuation des salles débute à 17 h 30 ou 21 h 30 les jours de nocturne.
+
+Fermé le :
+Lundi 1er janvier
+Mardi 1er mai
+Mardi 8 mai
+Mardi 25 décembre
+
+
+Adresse :
+
+Musée du Louvre, rue de rivoli 75000 Paris
+Infos :
+
+Pour toute demande particulière veuillez nous contacter par billetterielouvre@malestroit.ovh, par téléphone au 01-89-89-89-89 ou sur le site du louvre.
+
+enfant à partir de 4 ans jusqu'à 12 ans, normal de 12 ans à 59 ans et senior à partir de 60 ans, gratuit pour les enfants de moins de 4 ans, tarif réduit pour les invalides, étudiants et les bénéficiaires d'un régime particulier(un justificatif et une pièce d'identité vous seront demandés à l'accueil du musée).
+
+Veuillez présenter vos papier d'identité lors du contrôle des billets ainsi que des justificatif demandé si vous avez pris un billet au tarif réduit.

@@ -27,8 +27,6 @@ class Mailer
 			->setCharset('utf-8')
 			->setContentType('text/html')
 			;
-			$message->attach(
-  			\Swift_Attachment::fromPath('../public/img/logo.png')->setFilename('cool.jpg'));
 			$logo =  $message->embed(\Swift_Image::fromPath('../public/img/logo.png'));
 			$message->setBody(
 

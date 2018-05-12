@@ -14,6 +14,7 @@ use App\Entity\Price;
 use App\Service\PriceCalculator;
 use App\Service\TicketCounterByDate;
 use App\Repository\PriceRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 /**
 * 
@@ -22,6 +23,7 @@ class TicketsController extends Abstractcontroller
 {
 	/**
 	* @Route("/billetterie", name="tickets")
+	* @Method({"GET", "POST"})
 	*/
 	public function tickets(Request $request, PriceCalculator $priceCalculator) 
 	{

@@ -9,12 +9,15 @@ use Symfony\Component\HttpFoundation\Request;
 use App\Entity\Command;
 use App\Repository\CommandRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 class RecapController extends AbstractController
 {
     /**
-     * @Route("/recapitulatif-commande-{command_id}", name="recap")
+     * @Route("/recapitulatif-commande-{command_id}", name="recap", requirements={"command_id"="\w+"})
      * @ParamConverter("command", options={"mapping":{"command_id": "token"}})
+     * @Method({"GET"})
      */
     public function recapShow(Request $request, Command $command)
     {
@@ -24,7 +27,8 @@ class RecapController extends AbstractController
     		
     	} else {
 
-    		return $this->redirectToRoute('homepage');
+    		throw new AccessDeniedException("vous avez déjà payé votre commande");
+            
     	}
         
     }

@@ -22,7 +22,7 @@ class PaymentController extends AbstractController
 	/**
 	* @Route("/paiement-{command_id}", name="payment", requirements={"command_id"="\w+"})
 	* @ParamConverter("command", options={"mapping":{"command_id": "token"}})
-	* @Method({"GET"})
+	* @Method({"GET","POST"})
 	*/
 	public function payment(Request $request, Command $command, StripeService $stripe, Mailer $mailer)
 	{

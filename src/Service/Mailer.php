@@ -27,22 +27,27 @@ class Mailer
 			->setTo($command->getEmail())
 			->setCharset('utf-8')
 			->setContentType('text/html')
-			->setBody(
+			;
+
+			$logolouvre = $message->embed(\Swift_Image::fromPath('http://www.billetterielouvre.malestroit.ovh/public/img/logo.png'));
+
+			$message->setBody(
 				$this->templating->render('mail/commandmail.html.twig', array(
-					'command'=>$command,	
+					'command'=>$command,
+					'logo'=>$logolouvre	
 				), 
 				'text/html')
 			)
-			 ->addPart(
+			;
+
+			$message->addPart(
             $this->templating->render(
                 'mail/commandmail.text.twig',
                 array('command'=>$command)
 	            ),
 	            'text/plain'
 	        )
-			;
-			
-			
+			;	
 
 		$this->mail->send($message);
 

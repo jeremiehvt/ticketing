@@ -29,12 +29,12 @@ class HomepageControllerTest extends WebTestCase
         yield ['/billetterie#legal'];    
     }
 
-    public function testLink()
+    public function testTicketLink()
     {
     	$client = self::createClient();
 	    $crawler = $client->request('GET', '/');
 
-        $ticketLink = $crawler->selectLink('billetterie')->link();
+        $ticketLink = $crawler->selectLink('Billetterie')->link();
         $crawler = $client->click($ticketLink);
 
         $info = $crawler->filter('h2')->text();

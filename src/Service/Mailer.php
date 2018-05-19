@@ -16,8 +16,8 @@ class Mailer
 	
 	/**
 	 * 
-	 * @param swiftmailer
-	 * @param twig_environment
+	 * @param class $swiftmailer
+	 * @param class $twig_environment
 	 */
 	function __construct(\Swift_Mailer $mail, \Twig_Environment $templating)
 	{
@@ -27,7 +27,7 @@ class Mailer
 
 	/**
 	 * 
-	 * @param command
+	 * @param entity $command
 	 */
 	public function sendMail(Command $command)
 	{

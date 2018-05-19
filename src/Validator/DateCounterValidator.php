@@ -11,7 +11,7 @@ class DateCounterValidator extends ConstraintValidator
 	private $date;
 
     /**
-     * @param TicketCounterByDate
+     * @param class TicketCounterByDate
      */
 	public function __construct(TicketCounterByDate $date)
 	{
@@ -19,8 +19,8 @@ class DateCounterValidator extends ConstraintValidator
 	}
 
     /**
-     * @param value
-     * @param Constraint
+     * @param int $value
+     * @param interface $Constraint
      */
     public function validate($value, Constraint $constraint)
     {

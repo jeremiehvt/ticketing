@@ -21,7 +21,7 @@ class PriceCalculator
 	private $priceEntity;
 	
 	/**
-	 * @param EntityManagerInterface
+	 * @param interface EntityManagerInterface
 	 */
 	public function __construct(EntityManagerInterface $em)
 	{
@@ -30,7 +30,8 @@ class PriceCalculator
 	}
 
 	/**
-	 * @param ticket
+	 * @param Entity $ticket
+	 * @return int $price
 	 */
 	public function setPrice(Ticket $ticket)
 	{

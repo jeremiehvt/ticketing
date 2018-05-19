@@ -10,7 +10,7 @@ use App\Entity\Command;
 class StripeService 
 {
 	/**
-	 * @param command
+	 * @param entity $command
 	 */
 	public function sendPayment(Command $command)
 	{

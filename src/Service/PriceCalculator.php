@@ -8,8 +8,8 @@ use App\Entity\Ticket;
 use App\Entity\Price;
 
 /**
-* 
-*/
+ * service : calcul ticketprice
+ */
 class PriceCalculator
 {
 	private $ticket;
@@ -20,13 +20,18 @@ class PriceCalculator
 	private $em;
 	private $priceEntity;
 	
+	/**
+	 * @param EntityManagerInterface
+	 */
 	public function __construct(EntityManagerInterface $em)
 	{
 			
 		$this->em = $em;	
 	}
 
-	
+	/**
+	 * @param ticket
+	 */
 	public function setPrice(Ticket $ticket)
 	{
 		$this->ticket = $ticket;

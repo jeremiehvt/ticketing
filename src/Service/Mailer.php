@@ -5,19 +5,30 @@ namespace App\Service;
 use App\Entity\Command;
 
 /**
-* 
-*/
+ * 
+ * service : Mailer
+ *
+ */
 class Mailer
 {
 	private $mail;
 	private $templating;
 	
+	/**
+	 * 
+	 * @param swiftmailer
+	 * @param twig_environment
+	 */
 	function __construct(\Swift_Mailer $mail, \Twig_Environment $templating)
 	{
 		$this->mail = $mail;
 		$this->templating = $templating;
 	}
 
+	/**
+	 * 
+	 * @param command
+	 */
 	public function sendMail(Command $command)
 	{
 

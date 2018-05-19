@@ -16,13 +16,19 @@ class TicketCounterByDate
 	private $em;
 	private $count;	
 
-	
+	/**
+	 * @param EntityManagerInterface
+	 */
 	public function __construct(EntityManagerInterface $em)
 	{
 		$this->em = $em;
 		
 	}
 
+	/**
+	 * @param date
+	 * @return count
+	 */
 	public function countByDate($date)
 	{
 	

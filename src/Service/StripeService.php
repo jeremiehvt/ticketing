@@ -5,10 +5,13 @@ namespace App\Service;
 use App\Entity\Command;
 
 /**
-* 
-*/
+ * service : stripe 
+ */
 class StripeService 
 {
+	/**
+	 * @param command
+	 */
 	public function sendPayment(Command $command)
 	{
 		\Stripe\Stripe::setApiKey("sk_test_waPjYO9CcyAn5z3n1g2789d8");

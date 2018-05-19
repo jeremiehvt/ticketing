@@ -10,11 +10,18 @@ class DateCounterValidator extends ConstraintValidator
 {
 	private $date;
 
+    /**
+     * @param TicketCounterByDate
+     */
 	public function __construct(TicketCounterByDate $date)
 	{
 		$this->date = $date;
 	}
 
+    /**
+     * @param value
+     * @param Constraint
+     */
     public function validate($value, Constraint $constraint)
     {
         /* @var $constraint App\Validator\DateCounter */
